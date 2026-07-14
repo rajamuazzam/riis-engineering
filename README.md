@@ -1,19 +1,21 @@
-# RIIS Engineering V1.2.6 Source Audit Fix
+# RIIS Engineering V1.2.7 Brand Integration
 
-This release is based on a full source audit of V1.2.5.
+Micro release based on the stable V1.2.6 source-audit baseline.
 
-## Confirmed findings
-1. V1.2.5 still contained the original standalone `<footer>` in `page.js`.
-   The earlier automated replacement had not removed it.
-2. The hero uses an animated `<canvas>` with radial gradients and a GSAP 3D-transformed mesh.
-   These decorative GPU/composited layers are now explicitly hidden during print/full-page PDF capture.
-3. The navbar was loading the full 1536×1024 logo artwork with large surrounding whitespace.
-   A cropped logo asset is now used in the navbar.
+## Change
+- Navbar now uses a RIIS-only transparent PNG mark derived from the approved RIIS artwork.
+- Descriptor line is omitted from the navbar for cleaner small-scale branding.
+- Removed rectangular JPG/banner treatment.
+- Logo uses normal blending, no masks, and no filters.
 
-## Fixes
-- Standalone footer actually removed from JSX.
-- Compact footer actually integrated inside the contact section.
-- Animated hero canvas / mesh decorative layers hidden in print capture.
-- Contact is content-driven, not viewport-height driven.
-- Cropped RIIS logo asset added and used in navbar.
-- WhatsApp function, green button, desk numbers and links unchanged.
+## Locked
+- All content
+- Hero and live interaction
+- Expertise
+- Workflow
+- Experience
+- Current engagements
+- Technical capability
+- Contact/footer root fixes
+- WhatsApp green button
+- Dual Engineering Desk behaviour and numbers

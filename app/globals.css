@@ -300,3 +300,29 @@ main{display:block!important}
     padding-bottom:24px!important;
   }
 }
+
+
+/* V1.2.7 — brand integration */
+.brand-logo{
+  width:214px!important;
+  height:64px!important;
+  overflow:visible!important;
+  display:flex!important;
+  align-items:center!important;
+}
+.brand-logo img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:left center!important;
+  mix-blend-mode:normal!important;
+  filter:none!important;
+  opacity:1!important;
+}
+
+@media(max-width:620px){
+  .brand-logo{
+    width:158px!important;
+    height:50px!important;
+  }
+}
