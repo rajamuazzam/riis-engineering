@@ -9,8 +9,8 @@ a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit}
 .section{position:relative;padding:112px max(6vw,24px)}
 .nav{position:fixed;z-index:30;top:0;left:0;right:0;height:82px;padding:0 max(4vw,22px);display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(7,16,25,.94),rgba(7,16,25,.65),transparent);backdrop-filter:blur(10px)}
-.brand-logo{display:block;width:250px;height:72px;overflow:hidden}
-.brand-logo img{width:100%;height:100%;object-fit:cover;object-position:center;mix-blend-mode:screen;filter:contrast(1.1)}
+.brand-logo{display:block;width:250px;height:72px;overflow:hidden;background:transparent}
+.brand-logo img{width:100%;height:100%;object-fit:cover;object-position:center;mix-blend-mode:screen;filter:contrast(1.18) brightness(.94);mask-image:linear-gradient(90deg,transparent 0,black 7%,black 93%,transparent 100%)}
 .nav-links{display:flex;gap:28px;align-items:center;font-size:13px;color:#c8d2df}
 .nav-links a:hover{color:#fff}
 .nav-cta{border:1px solid rgba(255,255,255,.22);padding:12px 18px}
@@ -84,7 +84,11 @@ button{font:inherit;color:inherit}
 .ticker-track{display:flex;align-items:center;gap:30px;width:max-content;animation:ticker 28s linear infinite;font-size:11px;letter-spacing:.18em;color:#8ea0b4}
 .ticker-track b{color:var(--orange)}
 @keyframes ticker{to{transform:translateX(-50%)}}
-.contact{min-height:70vh;display:grid;place-items:center;background:radial-gradient(circle at 50% 30%,rgba(106,162,255,.12),transparent 45%),#06101a}
+.contact{min-height:62vh;display:grid;place-items:center;overflow:hidden;background:
+linear-gradient(135deg,transparent 0 46%,rgba(106,162,255,.045) 46.2% 46.6%,transparent 46.8% 100%),
+linear-gradient(45deg,transparent 0 54%,rgba(255,126,61,.035) 54.2% 54.5%,transparent 54.7% 100%),
+radial-gradient(ellipse at 50% 45%,rgba(106,162,255,.075),transparent 34%),
+#06101a}
 .contact-inner{text-align:center;max-width:900px}
 .contact h2{margin:22px 0}
 .contact p{color:var(--muted);font-size:18px;line-height:1.7}
@@ -99,8 +103,8 @@ button{font:inherit;color:inherit}
 .whatsapp-panel>a span{font-size:10px;color:var(--orange)}
 .whatsapp-panel>a strong{font-size:14px}
 .whatsapp-panel>a b{font-weight:400;color:#718398}
-footer{padding:28px max(4vw,22px);border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;color:#7e8fa3;font-size:11px;gap:24px}
-footer img{width:180px;height:56px;object-fit:cover;object-position:center;mix-blend-mode:screen}
+footer{min-height:92px;padding:18px max(4vw,22px);border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;color:#7e8fa3;font-size:11px;gap:24px;background:#050c13}
+footer img{width:170px;height:48px;object-fit:cover;object-position:center;mix-blend-mode:screen;filter:contrast(1.15) brightness(.92);mask-image:linear-gradient(90deg,transparent 0,black 8%,black 92%,transparent 100%)}
 footer p{margin:0}
 @media(max-width:980px){
   .nav-links a:not(.nav-cta){display:none}
@@ -117,7 +121,7 @@ footer p{margin:0}
   .workflow-step{min-height:0;padding:24px 0;border-bottom:1px solid var(--line);opacity:1!important}
   .workflow-node{position:absolute;left:-33px;top:18px}
   .engagement-grid{grid-template-columns:1fr}
-  footer{flex-direction:column;align-items:flex-start}
+  footer{flex-direction:column;align-items:flex-start;min-height:auto;padding-top:22px;padding-bottom:22px}
 }
 @media(max-width:620px){
   .section{padding:88px 22px}
@@ -139,3 +143,6 @@ footer p{margin:0}
 @media(prefers-reduced-motion:reduce){
   *{scroll-behavior:auto!important;animation:none!important}
 }
+
+.whatsapp-icon{width:29px;height:29px;display:block}
+.whatsapp-float{display:grid;place-items:center}

@@ -1,16 +1,8 @@
-# RIIS Engineering V1.2 Production Fix
+# RIIS Engineering V1.2.2 WhatsApp Icon Micro Hotfix
 
-Production repair release.
-
-## Fixes
-- WhatsApp dual engineering desk popup works with React state.
-- WhatsApp links target 60178041235 and 601119788718.
-- Approved RIIS logo integrated in navigation and footer.
-- Removed pinned 2400px workflow animation and dead scroll runway.
-- Workflow is horizontal on desktop and vertical on mobile.
-- About, experience and other content remain visible by default.
-- GSAP animation is enhancement only, not required for content visibility.
-- Retains GitHub -> Cloudflare Pages static export workflow.
+## Change
+- Replaced the floating `WA` text with a crisp inline SVG WhatsApp icon.
+- Existing popup, Engineering Desk 01 / 02, phone numbers and WhatsApp links are unchanged.
 
 ## Cloudflare Pages
 Build command: npm run build
