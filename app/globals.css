@@ -353,3 +353,67 @@ main{display:block!important}
     height:52px!important;
   }
 }
+
+
+/* V1.2.9 — corporate light navbar integration */
+.nav{
+  background:rgba(246,248,250,.96)!important;
+  border-bottom:1px solid rgba(9,25,40,.14)!important;
+  box-shadow:0 8px 30px rgba(3,14,25,.08)!important;
+  backdrop-filter:blur(16px)!important;
+  -webkit-backdrop-filter:blur(16px)!important;
+}
+.nav-inner{
+  min-height:92px!important;
+}
+.brand-logo{
+  width:310px!important;
+  height:76px!important;
+  overflow:hidden!important;
+  display:flex!important;
+  align-items:center!important;
+}
+.brand-logo img{
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  mix-blend-mode:multiply!important;
+  filter:contrast(1.08) saturate(.96)!important;
+}
+
+.nav-links a{
+  color:#263544!important;
+}
+.nav-links a:hover{
+  color:#071523!important;
+}
+.nav-cta{
+  color:#071523!important;
+  border-color:rgba(7,21,35,.35)!important;
+  background:transparent!important;
+}
+.nav-cta:hover{
+  color:#f5f8fb!important;
+  background:#071523!important;
+  border-color:#071523!important;
+}
+
+/* Hero starts below the taller light corporate navbar */
+.hero{
+  padding-top:92px!important;
+}
+
+@media(max-width:620px){
+  .nav-inner{
+    min-height:76px!important;
+  }
+  .brand-logo{
+    width:214px!important;
+    height:58px!important;
+  }
+  .hero{
+    padding-top:76px!important;
+  }
+}
