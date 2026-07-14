@@ -171,7 +171,7 @@ export default function Home() {
     <main ref={scope}>
       <nav className="nav">
         <a className="brand-logo" href="#home" aria-label="RIIS Engineering home">
-          <img src="/riis-logo.jpg" alt="RIIS Structural FEA Engineering PMT" />
+          <img src="/riis-logo-cropped.jpg" alt="RIIS Structural FEA Engineering PMT" />
         </a>
         <div className="nav-links">
           <a href="#expertise">Expertise</a>
@@ -362,6 +362,11 @@ export default function Home() {
               Discuss via WhatsApp
             </button>
           </div>
+
+          <div className="contact-footer">
+            <p>Structural Engineering · Finite Element Analysis · PMT Support</p>
+            <span>© {new Date().getFullYear()} RIIS Engineering</span>
+          </div>
         </div>
       </section>
 
@@ -408,12 +413,6 @@ export default function Home() {
           </a>
         </div>
       )}
-
-      <footer>
-        <img src="/riis-logo.jpg" alt="RIIS Engineering" />
-        <p>Structural Engineering · Finite Element Analysis · PMT Support</p>
-        <span>© {new Date().getFullYear()} RIIS Engineering</span>
-      </footer>
-    </main>
+</main>
   );
 }

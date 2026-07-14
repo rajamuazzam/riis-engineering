@@ -1,19 +1,19 @@
-# RIIS Engineering V1.2.5 Root Cause Fix
+# RIIS Engineering V1.2.6 Source Audit Fix
 
-Root-cause cleanup based on V1.2.4.
+This release is based on a full source audit of V1.2.5.
 
-## Actual causes addressed
-- Removed all radial/ellipse contact background layers that rendered as a large blue oval in PDF/full-page capture.
-- Removed the standalone footer from document flow.
-- Integrated the compact legal/capability footer directly into the contact section, preventing a footer-only trailing capture page.
-- Removed logo blend and mask effects that could make the navbar logo disappear in capture.
+## Confirmed findings
+1. V1.2.5 still contained the original standalone `<footer>` in `page.js`.
+   The earlier automated replacement had not removed it.
+2. The hero uses an animated `<canvas>` with radial gradients and a GSAP 3D-transformed mesh.
+   These decorative GPU/composited layers are now explicitly hidden during print/full-page PDF capture.
+3. The navbar was loading the full 1536×1024 logo artwork with large surrounding whitespace.
+   A cropped logo asset is now used in the navbar.
 
-## Locked
-- Hero
-- Expertise
-- Workflow
-- Experience
-- Engagements
-- Technical capability
-- WhatsApp green icon
-- Dual Engineering Desk WhatsApp behaviour and numbers
+## Fixes
+- Standalone footer actually removed from JSX.
+- Compact footer actually integrated inside the contact section.
+- Animated hero canvas / mesh decorative layers hidden in print capture.
+- Contact is content-driven, not viewport-height driven.
+- Cropped RIIS logo asset added and used in navbar.
+- WhatsApp function, green button, desk numbers and links unchanged.
