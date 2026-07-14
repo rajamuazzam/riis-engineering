@@ -1,23 +1,19 @@
-# RIIS Engineering V1.2.4 Production Cleanup
+# RIIS Engineering V1.2.5 Root Cause Fix
 
-Production cleanup release based on V1.2.3.
+Root-cause cleanup based on V1.2.4.
+
+## Actual causes addressed
+- Removed all radial/ellipse contact background layers that rendered as a large blue oval in PDF/full-page capture.
+- Removed the standalone footer from document flow.
+- Integrated the compact legal/capability footer directly into the contact section, preventing a footer-only trailing capture page.
+- Removed logo blend and mask effects that could make the navbar logo disappear in capture.
 
 ## Locked
 - Hero
-- Website content
+- Expertise
 - Workflow
-- WhatsApp dual engineering desk behaviour and numbers
-- Current engagements structure
-- Expertise and experience sections
-
-## Fixes
-- Removed oversized diagonal blue line from the contact section
-- Replaced it with a restrained engineering grid / subtle FEA glow
-- Forced WhatsApp floating button to remain WhatsApp green
-- Added explicit layout cleanup to prevent trailing reserved height
-- Added full-page / print capture rules so floating UI does not create oversized blank ending
-- Footer height remains content-driven and compact
-
-## Cloudflare Pages
-Build command: npm run build
-Build output directory: out
+- Experience
+- Engagements
+- Technical capability
+- WhatsApp green icon
+- Dual Engineering Desk WhatsApp behaviour and numbers

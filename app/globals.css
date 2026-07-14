@@ -85,18 +85,17 @@ button{font:inherit;color:inherit}
 .ticker-track b{color:var(--orange)}
 @keyframes ticker{to{transform:translateX(-50%)}}
 .contact{
-  min-height:62vh;
+  min-height:72vh;
   display:grid;
   place-items:center;
   overflow:hidden;
-  background:
-    linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px),
-    radial-gradient(ellipse at 50% 42%,rgba(106,162,255,.07),transparent 34%),
-    #06101a;
-  background-size:52px 52px,52px 52px,auto,auto;
+  background-color:#06101a;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:52px 52px;
 }
-.contact-inner{text-align:center;max-width:900px}
+.contact-inner{text-align:center;max-width:900px;width:100%;position:relative;z-index:1}
 .contact h2{margin:22px 0}
 .contact p{color:var(--muted);font-size:18px;line-height:1.7}
 .contact-actions{justify-content:center}
@@ -110,9 +109,6 @@ button{font:inherit;color:inherit}
 .whatsapp-panel>a span{font-size:10px;color:var(--orange)}
 .whatsapp-panel>a strong{font-size:14px}
 .whatsapp-panel>a b{font-weight:400;color:#718398}
-footer{min-height:92px;padding:18px max(4vw,22px);border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;color:#7e8fa3;font-size:11px;gap:24px;background:#050c13}
-footer img{width:170px;height:48px;object-fit:cover;object-position:center;mix-blend-mode:screen;filter:contrast(1.15) brightness(.92);mask-image:linear-gradient(90deg,transparent 0,black 8%,black 92%,transparent 100%)}
-footer p{margin:0}
 @media(max-width:980px){
   .nav-links a:not(.nav-cta){display:none}
   .brand-logo{width:220px;height:64px}
@@ -128,7 +124,6 @@ footer p{margin:0}
   .workflow-step{min-height:0;padding:24px 0;border-bottom:1px solid var(--line);opacity:1!important}
   .workflow-node{position:absolute;left:-33px;top:18px}
   .engagement-grid{grid-template-columns:1fr}
-  footer{flex-direction:column;align-items:flex-start;min-height:auto;padding-top:22px;padding-bottom:22px}
 }
 @media(max-width:620px){
   .section{padding:88px 22px}
@@ -171,7 +166,6 @@ footer p{margin:0}
 /* V1.2.4 production cleanup */
 html,body,main{min-height:0!important}
 main{display:block!important}
-footer{height:auto!important;max-height:none!important;overflow:visible!important}
 
 /* Keep floating WhatsApp green and interactive on screen */
 .whatsapp-float{
@@ -186,7 +180,38 @@ footer{height:auto!important;max-height:none!important;overflow:visible!importan
   html,body,main{height:auto!important;min-height:0!important}
   .nav{position:absolute!important}
   .whatsapp-float,.whatsapp-panel{display:none!important}
-  footer{break-inside:avoid!important;page-break-inside:avoid!important}
-  .contact{min-height:520px!important}
   *{animation:none!important;transition:none!important}
+}
+
+/* V1.2.5 root-cause contact/footer fix */
+.contact.section{padding-bottom:34px}
+.contact-footer{
+  margin-top:84px;
+  padding-top:24px;
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  gap:24px;
+  color:#7e8fa3;
+  font-size:11px;
+  text-align:left;
+}
+.contact-footer p{margin:0;color:#7e8fa3;font-size:11px;line-height:1.5}
+.contact-footer span{white-space:nowrap}
+
+/* Logo is displayed normally; no blend/mask effects that disappear in PDF capture */
+.brand-logo img{
+  mix-blend-mode:normal!important;
+  mask-image:none!important;
+  -webkit-mask-image:none!important;
+  filter:none!important;
+  object-fit:contain!important;
+}
+@media(max-width:620px){
+  .contact-footer{margin-top:58px;flex-direction:column;gap:8px}
+}
+@media print{
+  .contact{min-height:auto!important}
+  .contact.section{padding-top:90px!important;padding-bottom:28px!important}
+  .contact-footer{margin-top:60px!important}
 }
