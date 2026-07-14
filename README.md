@@ -1,8 +1,22 @@
-# RIIS Engineering V1.2.2 WhatsApp Icon Micro Hotfix
+# RIIS Engineering V1.2.4 Production Cleanup
 
-## Change
-- Replaced the floating `WA` text with a crisp inline SVG WhatsApp icon.
-- Existing popup, Engineering Desk 01 / 02, phone numbers and WhatsApp links are unchanged.
+Production cleanup release based on V1.2.3.
+
+## Locked
+- Hero
+- Website content
+- Workflow
+- WhatsApp dual engineering desk behaviour and numbers
+- Current engagements structure
+- Expertise and experience sections
+
+## Fixes
+- Removed oversized diagonal blue line from the contact section
+- Replaced it with a restrained engineering grid / subtle FEA glow
+- Forced WhatsApp floating button to remain WhatsApp green
+- Added explicit layout cleanup to prevent trailing reserved height
+- Added full-page / print capture rules so floating UI does not create oversized blank ending
+- Footer height remains content-driven and compact
 
 ## Cloudflare Pages
 Build command: npm run build
