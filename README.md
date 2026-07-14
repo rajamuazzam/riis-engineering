@@ -1,21 +1,22 @@
-# RIIS Engineering V1.2.7 Brand Integration
+# RIIS Engineering V1.2.8 Compact Brand Lockup
 
-Micro release based on the stable V1.2.6 source-audit baseline.
+Navbar-specific brand integration release based on stable V1.2.7.
 
-## Change
-- Navbar now uses a RIIS-only transparent PNG mark derived from the approved RIIS artwork.
-- Descriptor line is omitted from the navbar for cleaner small-scale branding.
-- Removed rectangular JPG/banner treatment.
-- Logo uses normal blending, no masks, and no filters.
+## Brand system
+- Corporate/master artwork: existing full RIIS structural + FEA logo retained.
+- Navbar: new compact RIIS ENGINEERING SVG lockup.
+- Compact mark uses a restrained FEA gradient, subtle analysis mesh and one stress hotspot.
+- Truss/support artwork and long descriptor are intentionally omitted from the navbar.
+- SVG is transparent and remains sharp on desktop/mobile/retina displays.
 
-## Locked
-- All content
-- Hero and live interaction
+## Locked from V1.2.7
+- Content and information architecture
+- Hero
 - Expertise
 - Workflow
 - Experience
 - Current engagements
 - Technical capability
-- Contact/footer root fixes
-- WhatsApp green button
-- Dual Engineering Desk behaviour and numbers
+- Contact/footer fixes
+- WhatsApp green button and dual Engineering Desk behaviour
+- Print/PDF compositing fixes
