@@ -1,37 +1,17 @@
-# RIIS Engineering Website V1
+# RIIS Engineering V1.2 Production Fix
 
-Modern single-page corporate website with scroll-driven GSAP animation.
+Production repair release.
 
-## Local development
-```bash
-npm install
-npm run dev
-```
-
-## Static production export
-```bash
-npm install
-npm run build
-```
-
-The static site is exported to the `out/` folder.
+## Fixes
+- WhatsApp dual engineering desk popup works with React state.
+- WhatsApp links target 60178041235 and 601119788718.
+- Approved RIIS logo integrated in navigation and footer.
+- Removed pinned 2400px workflow animation and dead scroll runway.
+- Workflow is horizontal on desktop and vertical on mobile.
+- About, experience and other content remain visible by default.
+- GSAP animation is enhancement only, not required for content visibility.
+- Retains GitHub -> Cloudflare Pages static export workflow.
 
 ## Cloudflare Pages
-- Build command: `npm run build`
-- Build output directory: `out`
-- Node.js: current LTS
-
-## Content rule
-- **Selected Team Experience** = collective professional experience of the engineering team.
-- **Current Engagements** = only verified projects contracted directly to RIIS.
-- Replace placeholder engagement cards only with verified RIIS work.
-
-## V1.1
-Dual WhatsApp desks, mobile workflow fix, codes ticker and confidentiality copy.
-
-## V1.1.2
-- Approved RIIS structural / FEA logo integrated
-- Temporary R navigation mark replaced
-- RIIS hero branding added
-- Browser/app icon asset added
-- V1.1 WhatsApp dual desks and mobile workflow fix retained
+Build command: npm run build
+Build output directory: out
