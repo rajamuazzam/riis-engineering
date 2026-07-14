@@ -25,3 +25,13 @@ The static site is exported to the `out/` folder.
 - **Selected Team Experience** = collective professional experience of the engineering team.
 - **Current Engagements** = only verified projects contracted directly to RIIS.
 - Replace placeholder engagement cards only with verified RIIS work.
+
+## V1.1
+Dual WhatsApp desks, mobile workflow fix, codes ticker and confidentiality copy.
+
+## V1.1.2
+- Approved RIIS structural / FEA logo integrated
+- Temporary R navigation mark replaced
+- RIIS hero branding added
+- Browser/app icon asset added
+- V1.1 WhatsApp dual desks and mobile workflow fix retained
