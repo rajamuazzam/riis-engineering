@@ -1,17 +1,12 @@
-# RIIS Engineering V1.3A — Engineering Experience & Credentials
+# RIIS Engineering V1.3A1 — Cloudflare Install Hotfix
 
-Built from frozen V1.2.12b live baseline.
+Root cause shown in Cloudflare log:
+`npm clean-install` failed inside npm itself with `Exit handler never called!`
+before `npm run build` was executed.
 
-Added:
-- 5-stage scroll-driven engineering story: Structure → Load → Mesh → Response → Engineering Decision
-- SVG structural response / FEA contour sequence controlled by GSAP ScrollTrigger
-- Professional Credentials section: P.E., M.I.E.M., Ts., PMP®
-- Interactive expertise cards with capability drill-down
-- Responsive mobile treatment
+Fix:
+- Removed package-lock.json so Cloudflare Pages uses `npm install`
+  rather than `npm clean-install`.
+- No visual, animation, credential, WhatsApp, SEO, sitemap or content changes.
 
-Preserved:
-- Existing navbar and approved RIIS logo
-- WhatsApp dual engineering desk
-- Existing content sections
-- SEO / Open Graph
-- Literal sitemap.xml and robots.txt
+Local V1.3A production build had already completed successfully.
