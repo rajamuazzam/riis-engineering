@@ -329,80 +329,77 @@ export default function Home() {
         </button>
       </nav>
 
-      <section className="hero" id="top">
+      <section className="hero hero-v142" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">STRUCTURAL ENGINEERING · FEA · PMT SUPPORT</p>
-          <h1>
-            Got a structural
-            <br />
-            problem?
-          </h1>
-          <h2>We analyse it. Verify it. Help you decide.</h2>
-          <p className="hero-text">
-            Structural engineering and simulation-led design development for complex
-            load-bearing systems, offshore facilities, engineering modifications
-            and R&D of structural products.
-          </p>
+          <p className="eyebrow">STRUCTURAL · FEA · DESIGN DEVELOPMENT</p>
+          <h1>ENGINEERING<br />THE RESPONSE.</h1>
           <div className="hero-actions">
-            <a className="button primary" href="#solve">
-              Find my engineering need <Arrow />
-            </a>
-            <button className="button secondary" onClick={() => setWhatsAppOpen(true)}>
-              Discuss scope & fee
-            </button>
+            <a className="button primary" href="#solve">EXPLORE <Arrow /></a>
+            <button className="button secondary" onClick={() => setWhatsAppOpen(true)}>TALK TO AN ENGINEER</button>
           </div>
-          <p className="hero-note">
-            CONFIDENTIAL · SCOPE-DRIVEN · INITIAL DISCUSSION WITHOUT OBLIGATION
-          </p>
         </div>
-        <div className="hero-art" aria-hidden="true">
+
+        <div className="hero-art platform-fea" aria-hidden="true">
           <div className="hero-grid" />
-          <svg viewBox="0 0 650 620">
+          <svg viewBox="0 0 760 650">
             <defs>
               <linearGradient id="heroContour" x1="0" x2="1">
-                <stop offset="0" stopColor="#1b5db4" />
-                <stop offset=".42" stopColor="#13b9d5" />
-                <stop offset=".72" stopColor="#f1d331" />
-                <stop offset="1" stopColor="#f15b2a" />
+                <stop offset="0" stopColor="#1554a1" />
+                <stop offset=".38" stopColor="#12b8d4" />
+                <stop offset=".7" stopColor="#efd12f" />
+                <stop offset="1" stopColor="#f05a28" />
               </linearGradient>
+              <radialGradient id="hotspot">
+                <stop offset="0" stopColor="#ff3b1f" stopOpacity=".95"/>
+                <stop offset="1" stopColor="#ff3b1f" stopOpacity="0"/>
+              </radialGradient>
             </defs>
-            <g className="hero-wire">
-              <path d="M110 470 L185 140 L325 90 L470 145 L545 470" />
-              <path d="M110 470 L545 470 M185 140 L470 145 M150 300 L505 300" />
-              <path d="M110 470 L325 90 L545 470 M185 140 L505 300 M470 145 L150 300" />
-              <path d="M150 300 L545 470 M505 300 L110 470" />
+            <g className="platform-deck">
+              <path d="M170 210 L510 210 L595 260 L255 260 Z"/>
+              <path d="M205 165 L455 165 L510 210 L170 210 Z"/>
+              <path d="M285 115 L405 115 L455 165 L205 165 Z"/>
+              <path d="M330 70 L380 70 L405 115 L285 115 Z"/>
             </g>
-            <path className="hero-fea" d="M325 90 L470 145 L505 300 L545 470 L325 410 Z" fill="url(#heroContour)" />
-            <g className="hero-nodes">
-              {[["110","470"],["185","140"],["325","90"],["470","145"],["545","470"],["150","300"],["505","300"],["325","410"]].map(([x,y]) => <circle key={`${x}-${y}`} cx={x} cy={y} r="5" />)}
+            <g className="platform-wire">
+              <path d="M190 260 L90 590 M565 260 L675 590 M275 260 L230 590 M490 260 L535 590"/>
+              <path d="M90 590 L675 590 M230 590 L535 590"/>
+              <path d="M190 260 L535 590 M565 260 L230 590 M275 260 L675 590 M490 260 L90 590"/>
+              <path d="M155 380 L610 380 M120 490 L645 490"/>
+              <path d="M155 380 L645 490 M610 380 L120 490"/>
             </g>
+            <g className="platform-mesh">
+              {Array.from({length: 10}).map((_,i)=><path key={`m1-${i}`} d={`M${330+i*7} 70 L${90+i*65} 590`}/>)}
+              {Array.from({length: 8}).map((_,i)=><path key={`m2-${i}`} d={`M90 ${310+i*40} L675 ${310+i*40}`}/>)}
+            </g>
+            <path className="platform-response" d="M405 115 L455 165 L510 210 L595 260 L610 380 L645 490 L675 590 L535 590 L490 260 Z" fill="url(#heroContour)"/>
+            <circle className="platform-hotspot" cx="505" cy="275" r="95" fill="url(#hotspot)"/>
           </svg>
           <div className="hero-readout">
-            <span>STRUCTURAL RESPONSE</span>
-            <b>PROBLEM → ANALYSIS → DECISION</b>
+            <span>STRUCTURE</span><i>→</i><span>MESH</span><i>→</i><b>RESPONSE</b>
           </div>
         </div>
+        <a className="hero-scroll" href="#solve">SCROLL ↓</a>
       </section>
 
       <section className="solve section" id="solve">
-        <div className="section-heading reveal">
+        <div className="section-heading reveal compact-heading">
           <div>
-            <p className="eyebrow">START WITH THE PROBLEM</p>
-            <h2>What do you need to solve?</h2>
+            <p className="eyebrow">START WITH YOUR QUESTION</p>
+            <h2>What are you trying to solve?</h2>
           </div>
-          <p>
-            Choose the engineering question closest to your scope. The technical
-            depth is there when you need it.
-          </p>
         </div>
 
-        <div className="solution-grid">
+        <div className="solution-grid visual-solution-grid">
           {solutions.map((item) => (
-            <button className="solution-card reveal" key={item.id} onClick={() => openSolution(item.id)}>
+            <button className={`solution-card visual-solution ${item.id}`} key={item.id} onClick={() => openSolution(item.id)}>
+              <div className="tile-visual" aria-hidden="true">
+                <span className="tile-grid"/>
+                <span className="tile-structure"/>
+                <span className="tile-response"/>
+                <span className="tile-node n1"/><span className="tile-node n2"/><span className="tile-node n3"/>
+              </div>
               <span className="solution-num">{item.num}</span>
               <strong>{item.short}</strong>
-              <h3>{item.title}</h3>
-              <p>{item.intro}</p>
               <span className="explore">EXPLORE <Arrow /></span>
             </button>
           ))}
@@ -412,21 +409,18 @@ export default function Home() {
       <section className="engineering-visual">
         <div className="visual-sticky">
           <div className="visual-copy">
-            <p className="eyebrow">ENGINEERING, NOT JUST ANALYSIS</p>
+            <p className="eyebrow">FOLLOW THE RESPONSE</p>
             <div className="visual-beat">
               <span>01</span>
-              <h2>Understand the structure.</h2>
-              <p>Establish the system, the interfaces and the load path.</p>
+              <h2>SEE THE LOAD.</h2>
             </div>
             <div className="visual-beat">
               <span>02</span>
-              <h2>Analyse the response.</h2>
-              <p>Use the right level of modelling to identify global and local behaviour.</p>
+              <h2>UNDERSTAND THE RESPONSE.</h2>
             </div>
             <div className="visual-beat visual-decision">
               <span>03</span>
-              <h2>Make the engineering decision.</h2>
-              <p>Analysis is only useful when it leads to a clear engineering decision.</p>
+              <h2>MAKE THE DECISION.</h2>
             </div>
           </div>
 
@@ -507,11 +501,6 @@ export default function Home() {
         </div>
 
         <div className="trust-footer reveal">
-          <p>
-            RIIS is supported by professionally recognised engineering personnel
-            with structural analysis, FEA and project delivery experience across
-            complex engineering scopes.
-          </p>
           <button className="text-link" onClick={() => { setCompetenceOpen(true); setCompetenceLayer("menu"); }}>
             Explore engineering competence <Arrow />
           </button>
@@ -524,10 +513,7 @@ export default function Home() {
             <p className="eyebrow">RELEVANT EXPERIENCE</p>
             <h2>Experience close to the problem.</h2>
           </div>
-          <p>
-            Selected experience families reflect the collective professional
-            experience of the RIIS engineering team.
-          </p>
+
         </div>
 
         <div className="experience-list">
@@ -546,7 +532,6 @@ export default function Home() {
               <span>0{index + 1}</span>
               <div>
                 <h3>{item.title}</h3>
-                <p>{item.text}</p>
                 <small>{item.tags}</small>
               </div>
               <Arrow />
@@ -559,31 +544,18 @@ export default function Home() {
         </p>
       </section>
 
-      <section className="contact section" id="contact">
-        <div className="contact-copy reveal">
-          <p className="eyebrow">START WITH A DISCUSSION</p>
-          <h2>Have an engineering problem to solve?</h2>
-          <p>
-            Share a drawing, model, design basis, early-stage design idea or simply
-            describe the problem. We can first discuss the scope, the engineering
-            decision required and the appropriate level of assessment.
-          </p>
-          <div className="commercial-line">
-            <span>01 SHARE THE PROBLEM</span>
-            <span>02 DISCUSS THE SCOPE</span>
-            <span>03 ALIGN THE ENGINEERING APPROACH & FEE</span>
-          </div>
-          <p className="fee-note">
-            Scope-driven fee · Fee aligned to engineering effort and agreed
-            deliverables · Initial discussion without obligation
-          </p>
-          <button className="button contact-button" onClick={() => setWhatsAppOpen(true)}>
-            Discuss scope & fee <Arrow />
-          </button>
+      <section className="contact section contact-v142" id="contact">
+        <div className="contact-signal" aria-hidden="true">
+          <span/><span/><span/><span/><span/>
         </div>
-        <div className="contact-mark reveal" aria-hidden="true">
-          <span>RIIS</span>
-          <b>ENGINEERING CLARITY<br />FOR COMPLEX STRUCTURES.</b>
+        <div className="contact-copy reveal">
+          <p className="eyebrow">RIIS ENGINEERING</p>
+          <h2>GOT AN ENGINEERING PROBLEM?</h2>
+          <strong>SHOW US.</strong>
+          <button className="button primary contact-talk" onClick={() => setWhatsAppOpen(true)}>
+            TALK TO AN ENGINEER <Arrow />
+          </button>
+          <small>DRAWING · SCREENSHOT · SKETCH · MODEL · IDEA</small>
         </div>
       </section>
 
@@ -839,19 +811,15 @@ export default function Home() {
           <button className="whatsapp-backdrop" onClick={() => setWhatsAppOpen(false)} aria-label="Close WhatsApp options" />
           <div className="whatsapp-card">
             <button className="whatsapp-close" onClick={() => setWhatsAppOpen(false)}>×</button>
-            <p className="eyebrow">DISCUSS SCOPE & FEE</p>
-            <h2>Choose an Engineering Desk.</h2>
-            <p>
-              Initial scope discussion is without obligation. Share the problem,
-              available information and the engineering decision you need to make.
-            </p>
+            <p className="eyebrow">TALK TO AN ENGINEER</p>
+            <h2>Who would you like to speak with?</h2>
             <a href={whatsappUrl("60178041235")} target="_blank" rel="noreferrer">
-              <span>ENGINEERING DESK A</span><b>WhatsApp +60 17-804 1235</b><Arrow />
+              <span>RAJA</span><b>Structural · Offshore · Brownfield · FEA</b><Arrow />
             </a>
             <a href={whatsappUrl("601119788718")} target="_blank" rel="noreferrer">
-              <span>ENGINEERING DESK B</span><b>WhatsApp +60 11-1978 8718</b><Arrow />
+              <span>LIYIA</span><b>Structural · Analysis · Engineering Support</b><Arrow />
             </a>
-            <small>SCOPE-DRIVEN · CONFIDENTIAL DISCUSSION · FEE ALIGNED TO AGREED ENGINEERING EFFORT</small>
+            <small>CONFIDENTIAL · INITIAL DISCUSSION WITHOUT OBLIGATION</small>
           </div>
         </div>
       )}

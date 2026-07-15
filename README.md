@@ -1,13 +1,31 @@
-# RIIS Engineering V1.4.1 — R&D Conversion Path
+# RIIS Engineering V1.4.2 — Visual-First Conversion
 
-Built on V1.4. FEA is repositioned as **FEA & Design Development**.
+V1.4.2 rebalances the site around visual engineering identity rather than paragraphs.
 
-## R&D visitor journey
-UNDERSTAND OR DEVELOP A DESIGN?
-→ What are you trying to learn?
-→ Develop & optimise a design
-→ Concept → Simulate → Understand → Iterate → Verify
-→ Staged commercial approach: Explore → Simulate → Develop → Verify
-→ Contextual WhatsApp enquiry
+## Conversion intent
+First 5 seconds:
+1. "Whoa — engineering."
+2. "Structural + FEA + design development."
+3. "They may understand my problem."
+4. Click deeper only by choice.
 
-Core rule remains: **Simple at first glance. Deep by choice.**
+## Visual DNA
+The hero uses an offshore platform / jacket-inspired structural model transitioning through:
+STRUCTURE → MESH → RESPONSE
+
+## Major changes
+- Visual-first offshore platform + FEA hero
+- Minimal hero copy
+- Animated structural wireframe, mesh and FEA response
+- Client problem cards converted to engineering visual tiles
+- Engineering story reduced to 3 visual beats:
+  SEE THE LOAD → UNDERSTAND THE RESPONSE → MAKE THE DECISION
+- Experience first layer simplified
+- Contact rebuilt as:
+  GOT AN ENGINEERING PROBLEM? → SHOW US. → TALK TO AN ENGINEER
+- Visible phone numbers removed
+- WhatsApp selector humanised to Raja / Liyia
+- Existing layered technical depth, R&D path, competence, tools and codes retained
+
+Core rule:
+SHOW → REACT → PROVE → INVITE
