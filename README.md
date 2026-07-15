@@ -1,14 +1,17 @@
-# RIIS Engineering V1.2.12a — Static Export Hotfix
+# RIIS Engineering V1.2.12b — Literal XML Sitemap Hotfix
 
-Fixes Cloudflare Pages / Next.js static export build failure.
+Based on V1.2.12a.
 
 ## Root cause
-Next.js `output: export` requires metadata routes such as `/sitemap.xml`
-and `/robots.txt` to be explicitly static.
+The Next.js sitemap metadata route built successfully under `output: export`,
+but the live sitemap was not being presented to Google as a clean literal XML
+sitemap. Search Console reported `Couldn't fetch` / `Unknown`.
 
 ## Fix
-- Added `export const dynamic = "force-static"` to `sitemap.js`
-- Added `export const dynamic = "force-static"` to `robots.js`
-- Replaced runtime `new Date()` in sitemap with a fixed ISO date
+- Removed `app/sitemap.js`
+- Added literal `public/sitemap.xml`
+- Removed `app/robots.js`
+- Added literal `public/robots.txt`
+- Sitemap canonical URL remains https://www.riis.engineering/
 
-Visual design and WhatsApp behaviour are unchanged.
+No visual, content, navbar, logo, or WhatsApp changes.
