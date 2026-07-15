@@ -171,7 +171,7 @@ export default function Home() {
     <main ref={scope}>
       <nav className="nav">
         <a className="brand-logo" href="#home" aria-label="RIIS Engineering home">
-          <img src="/riis-corporate-navbar.jpg" alt="RIIS Structural FEA Engineering PMT" />
+          <img src="/riis-corporate-navbar-transparent.png" alt="RIIS Structural FEA Engineering PMT" />
         </a>
         <div className="nav-links">
           <a href="#expertise">Expertise</a>

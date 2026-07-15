@@ -1,26 +1,21 @@
-# RIIS Engineering V1.2.9 Corporate Navbar Integration
+# RIIS Engineering V1.2.10 — Transparent Corporate Logo Fix
 
-Based on V1.2.8.
+Based on V1.2.9.
 
 ## Change
-- Replaced compact digital navbar lockup with the approved full RIIS structural/FEA corporate logo.
-- Added a clean off-white/light engineering navbar.
-- Navbar navigation is dark navy for contrast.
-- Discuss a project CTA uses a restrained dark outline and dark hover fill.
-- Corporate logo is tightly cropped for navbar use while retaining:
-  - RIIS FEA treatment
-  - structural/truss support imagery
-  - STRUCTURAL · FEA · ENGINEERING · PMT descriptor
-- Hero and all page content remain unchanged.
+- Removed the grey/light rectangular canvas from the corporate navbar logo.
+- Converted the navbar brand artwork to transparent PNG.
+- Retained the RIIS FEA contour, truss/structural artwork and descriptor.
+- Logo now blends directly into the off-white corporate navbar.
 
-## Locked
-- Hero content and interaction
+## Unchanged
+- Navbar light theme
+- Hero
 - About
 - Expertise
 - Workflow
 - Experience
 - Current engagements
 - Technical capability
-- Contact/footer root fixes
-- WhatsApp green dual-desk flow
-- Print/PDF fixes
+- Contact and footer
+- WhatsApp dual Engineering Desk flow
