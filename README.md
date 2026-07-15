@@ -1,21 +1,14 @@
-# RIIS Engineering V1.2.10 — Transparent Corporate Logo Fix
+# RIIS Engineering V1.2.11 — True Transparent Master Logo
 
-Based on V1.2.9.
+Based on V1.2.10.
 
-## Change
-- Removed the grey/light rectangular canvas from the corporate navbar logo.
-- Converted the navbar brand artwork to transparent PNG.
-- Retained the RIIS FEA contour, truss/structural artwork and descriptor.
-- Logo now blends directly into the off-white corporate navbar.
+## Branding fix
+- Re-extracted the structural/FEA artwork from the master logo.
+- Navbar no longer uses the grey rectangular logo canvas.
+- Structural truss, FEA RIIS lettering, right structural frame and FEA platform are retained.
+- Descriptor is rendered separately as crisp web typography:
+  STRUCTURAL · FEA · ENGINEERING · PMT
+- Logo uses contain sizing and a transparent asset.
+- Desktop and mobile navbar sizing refined.
 
-## Unchanged
-- Navbar light theme
-- Hero
-- About
-- Expertise
-- Workflow
-- Experience
-- Current engagements
-- Technical capability
-- Contact and footer
-- WhatsApp dual Engineering Desk flow
+All website content and WhatsApp behaviour remain unchanged.
