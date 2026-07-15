@@ -476,3 +476,63 @@ main{display:block!important}
     letter-spacing:.13em;
   }
 }
+
+
+/* RIIS V1.3A — Engineering Experience & Credentials */
+.engineering-story{height:520vh;background:#03080d;position:relative;color:#fff}
+.story-sticky{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:.78fr 1.22fr;align-items:center;padding:0 clamp(28px,6vw,110px);overflow:hidden}
+.story-copy{position:relative;height:66vh;z-index:3}
+.story-copy>.eyebrow{position:absolute;top:0;left:0}
+.story-stage{position:absolute;left:0;top:50%;transform:translateY(-50%);opacity:.08;max-width:520px}
+.story-stage span{font:600 11px/1 monospace;color:var(--orange);letter-spacing:.18em}
+.story-stage h2{font-size:clamp(48px,6vw,92px);line-height:.9;letter-spacing:-.06em;margin:16px 0 22px}
+.story-stage p{font-size:18px;line-height:1.65;color:#91a0ae;max-width:440px}
+.story-decision{transform:translateY(calc(-50% + 30px))}
+.story-visual{position:relative;height:70vh;display:flex;align-items:center;justify-content:center}
+.story-visual:before{content:"";position:absolute;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(29,105,198,.15),transparent 68%);filter:blur(15px)}
+.story-visual svg{width:100%;max-width:760px;overflow:visible}
+.story-structure{opacity:.22;fill:#7aa7d8;stroke:#7aa7d8;stroke-width:3}
+.story-structure path{fill:none}
+.story-loads{opacity:0;transform:translateY(-35px);stroke:#ff7e3d;stroke-width:3;fill:none}
+.story-mesh{opacity:0;stroke:#8bc8ff;stroke-width:.75}
+.story-contour{opacity:0;mix-blend-mode:screen}
+.story-critical{opacity:0;transform:scale(.35);transform-origin:390px 250px}
+.story-readout{position:absolute;right:0;bottom:2vh;border-left:1px solid #263b4d;padding:14px 18px;display:grid;gap:7px}
+.story-readout span{font-size:9px;letter-spacing:.18em;color:#6f8192}
+.story-readout b{font-size:11px;letter-spacing:.12em;color:#b8c7d6}
+.credentials{background:#f4f5f6;color:#07111b}
+.credentials .section-heading p{color:#5d6975}
+.credential-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #cfd5da;border-left:1px solid #cfd5da;margin-top:64px}
+.credential-card{position:relative;min-height:390px;padding:30px;border-right:1px solid #cfd5da;border-bottom:1px solid #cfd5da;display:flex;flex-direction:column}
+.credential-index{font:600 10px/1 monospace;color:#77838e;letter-spacing:.18em}
+.credential-card strong{font-size:clamp(52px,5vw,78px);letter-spacing:-.07em;margin:68px 0 8px;color:#092a4b}
+.credential-card em{font-style:normal;font-size:9px;letter-spacing:.15em;color:#e15f2b;font-weight:700}
+.credential-card h3{font-size:18px;line-height:1.25;margin:auto 0 8px}
+.credential-card p{font:600 11px/1.2 monospace;color:#697581;letter-spacing:.12em}
+.credential-card:after{content:"";position:absolute;left:30px;right:30px;bottom:86px;height:1px;background:linear-gradient(90deg,#1f6fba,transparent)}
+.credential-signature{display:flex;justify-content:center;align-items:center;gap:28px;padding:55px 20px 10px;font-size:clamp(14px,1.5vw,22px);font-weight:700;letter-spacing:.12em}
+.credential-signature i{font-style:normal;color:#e15f2b;font-size:28px}
+.service-card{cursor:pointer;overflow:hidden}
+.service-detail{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .4s ease,opacity .35s ease,margin .4s ease;margin-top:0}
+.service-detail>span{overflow:hidden}
+.service-detail span{display:block;color:#9ec6ec;font:600 10px/1.2 monospace;letter-spacing:.08em;padding:5px 0}
+.service-card.is-active{background:rgba(106,162,255,.09);transform:translateY(-4px)}
+.service-card.is-active .service-detail{grid-template-rows:1fr;opacity:1;margin-top:20px}
+.card-arrow{border:0;background:transparent;color:inherit;font:300 28px/1 sans-serif;cursor:pointer}
+@media(max-width:900px){
+  .engineering-story{height:430vh}
+  .story-sticky{grid-template-columns:1fr;padding:0 24px}
+  .story-copy{height:45vh;align-self:start;margin-top:11vh}
+  .story-stage h2{font-size:clamp(42px,13vw,68px)}
+  .story-stage p{font-size:15px;max-width:320px}
+  .story-visual{position:absolute;left:10%;right:-25%;bottom:2vh;height:52vh;opacity:.75}
+  .story-readout{right:24%;bottom:2vh}
+  .credential-grid{grid-template-columns:1fr 1fr}
+  .credential-card{min-height:310px}
+  .credential-card strong{margin-top:48px}
+}
+@media(max-width:560px){
+  .credential-grid{grid-template-columns:1fr}
+  .credential-card{min-height:270px}
+  .credential-signature{flex-direction:column;gap:12px;text-align:center}
+}

@@ -5,14 +5,14 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const expertise = [
-  ["01", "Structural Engineering", "Design, assessment and verification of load-bearing structures from concept through detailed engineering and modification."],
-  ["02", "Finite Element Analysis", "Advanced numerical assessment for local stress, complex geometry, nonlinear behaviour and design optimisation."],
-  ["03", "Structural Integrity", "Fitness-for-purpose thinking, anomaly assessment, strengthening concepts and practical life-extension support."],
-  ["04", "Offshore & Subsea", "Engineering experience across fixed offshore facilities, subsea structures, brownfield interfaces and deepwater development."],
-  ["05", "Marine Operations", "Structural support for lifting, transportation, installation, temporary conditions and construction sequencing."],
-  ["06", "Independent Technical Review", "Focused review of design basis, calculations, models, drawings and engineering deliverables."],
-  ["07", "Brownfield Engineering", "Modification studies, local checks, constructability and integration with operating facilities."],
-  ["08", "PMT Support", "Senior structural engineering input to project management teams, technical evaluation, assurance and delivery governance."],
+  ["01", "Structural Engineering", "Design, assessment and verification of load-bearing structures from concept through detailed engineering and modification.", ["In-place analysis", "Reassessment & modification", "Deck extension", "Equipment support", "Code verification"]],
+  ["02", "Finite Element Analysis", "Advanced numerical assessment for local stress, complex geometry, nonlinear behaviour and design optimisation.", ["Linear & nonlinear FEA", "Local stress assessment", "Contact & complex geometry", "Global-local interface", "Design optimisation"]],
+  ["03", "Structural Integrity", "Fitness-for-purpose thinking, anomaly assessment, strengthening concepts and practical life-extension support.", ["Anomaly assessment", "Life extension", "Strengthening concepts", "Fitness-for-purpose", "Repair strategy"]],
+  ["04", "Offshore & Subsea", "Engineering experience across fixed offshore facilities, subsea structures, brownfield interfaces and deepwater development.", ["Fixed platforms", "Subsea structures", "Deepwater systems", "Brownfield interfaces", "Marine environment"]],
+  ["05", "Marine Operations", "Structural support for lifting, transportation, installation, temporary conditions and construction sequencing.", ["Lifting", "Transportation", "Installation", "Temporary conditions", "Construction sequencing"]],
+  ["06", "Independent Technical Review", "Focused review of design basis, calculations, models, drawings and engineering deliverables.", ["Design basis", "Calculation review", "Model review", "Drawing review", "Technical assurance"]],
+  ["07", "Brownfield Engineering", "Modification studies, local checks, constructability and integration with operating facilities.", ["Modification studies", "Local checks", "Constructability", "Existing interfaces", "Operating facilities"]],
+  ["08", "PMT Support", "Senior structural engineering input to project management teams, technical evaluation, assurance and delivery governance.", ["Technical evaluation", "Engineering assurance", "Delivery governance", "Contractor interface", "Decision support"]],
 ];
 
 const experience = [
@@ -43,6 +43,7 @@ export default function Home() {
   const scope = useRef(null);
   const canvasRef = useRef(null);
   const [whatsAppOpen, setWhatsAppOpen] = useState(false);
+  const [activeExpertise, setActiveExpertise] = useState(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -84,6 +85,35 @@ export default function Home() {
             },
           }
         );
+      });
+
+      const storyTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".engineering-story",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 0.7,
+        },
+      });
+      storyTl
+        .to(".story-structure", { opacity: 1, duration: 1 })
+        .to(".story-loads", { opacity: 1, y: 0, duration: 1 })
+        .to(".story-beam", { attr: { d: "M90 220 Q300 250 510 220" }, duration: 1 }, "<")
+        .to(".story-mesh", { opacity: 1, duration: 1 })
+        .to(".story-contour", { opacity: 0.9, duration: 1 })
+        .to(".story-critical", { opacity: 1, scale: 1, duration: 0.8 })
+        .to(".story-decision", { opacity: 1, y: 0, duration: 1 });
+
+      gsap.utils.toArray(".story-stage").forEach((stage, i) => {
+        gsap.to(stage, {
+          opacity: 1,
+          scrollTrigger: {
+            trigger: ".engineering-story",
+            start: `${8 + i * 15}% top`,
+            end: `${22 + i * 15}% top`,
+            scrub: true,
+          },
+        });
       });
 
       gsap.to(".mesh-panel", {
@@ -212,6 +242,51 @@ export default function Home() {
         <div className="scroll-cue">SCROLL TO EXPLORE <span>↓</span></div>
       </section>
 
+      <section className="engineering-story">
+        <div className="story-sticky">
+          <div className="story-copy">
+            <p className="eyebrow">SCROLL-DRIVEN ENGINEERING</p>
+            <div className="story-stage"><span>01</span><h2>STRUCTURE</h2><p>Understand the system and the load path.</p></div>
+            <div className="story-stage"><span>02</span><h2>LOAD</h2><p>Apply the actions that drive structural response.</p></div>
+            <div className="story-stage"><span>03</span><h2>MESH</h2><p>Represent the detail needed for the decision.</p></div>
+            <div className="story-stage"><span>04</span><h2>RESPONSE</h2><p>Read the global and local behaviour.</p></div>
+            <div className="story-stage story-decision"><span>05</span><h2>ENGINEERING DECISION</h2><p>Analysis informs judgement. Judgement drives action.</p></div>
+          </div>
+          <div className="story-visual" aria-hidden="true">
+            <svg viewBox="0 0 600 440" role="img">
+              <defs>
+                <linearGradient id="feaContour" x1="0" x2="1">
+                  <stop offset="0" stopColor="#154c9e"/>
+                  <stop offset=".35" stopColor="#12b8d6"/>
+                  <stop offset=".68" stopColor="#f0d12f"/>
+                  <stop offset="1" stopColor="#f05a28"/>
+                </linearGradient>
+                <radialGradient id="criticalGlow">
+                  <stop offset="0" stopColor="#ff4b21" stopOpacity=".95"/>
+                  <stop offset="1" stopColor="#ff4b21" stopOpacity="0"/>
+                </radialGradient>
+              </defs>
+              <g className="story-structure">
+                <path className="story-beam" d="M90 220 Q300 220 510 220"/>
+                <path d="M110 220 L110 360 M490 220 L490 360 M110 360 L490 360"/>
+                <path d="M110 360 L200 220 M200 220 L300 360 M300 360 L400 220 M400 220 L490 360"/>
+                <circle cx="110" cy="220" r="6"/><circle cx="200" cy="220" r="6"/><circle cx="300" cy="220" r="6"/><circle cx="400" cy="220" r="6"/><circle cx="490" cy="220" r="6"/>
+              </g>
+              <g className="story-loads">
+                {[170,250,330,410].map((x) => <g key={x}><path d={`M${x} 70 L${x} 170`}/><path d={`M${x-9} 155 L${x} 170 L${x+9} 155`}/></g>)}
+              </g>
+              <g className="story-mesh">
+                {Array.from({length: 9}).map((_,i)=><path key={`v${i}`} d={`M${100+i*50} 205 L${100+i*50} 365`}/>)}
+                {Array.from({length: 6}).map((_,i)=><path key={`h${i}`} d={`M100 ${220+i*28} L500 ${220+i*28}`}/>)}
+              </g>
+              <path className="story-contour" d="M90 220 Q300 250 510 220 L490 360 L110 360 Z" fill="url(#feaContour)"/>
+              <circle className="story-critical" cx="390" cy="250" r="72" fill="url(#criticalGlow)"/>
+            </svg>
+            <div className="story-readout"><span>RIIS / ANALYSIS SEQUENCE</span><b>LOAD PATH → RESPONSE → DECISION</b></div>
+          </div>
+        </div>
+      </section>
+
       <section className="intro section">
         <div className="section-label">ABOUT RIIS</div>
         <div className="intro-copy animate-in">
@@ -243,14 +318,50 @@ export default function Home() {
           </p>
         </div>
         <div className="service-grid">
-          {expertise.map(([n, t, d]) => (
-            <article className="service-card animate-in" key={n}>
+          {expertise.map(([n, t, d, items]) => (
+            <article
+              className={`service-card animate-in ${activeExpertise === n ? "is-active" : ""}`}
+              key={n}
+              onClick={() => setActiveExpertise(activeExpertise === n ? null : n)}
+            >
               <span className="service-num">{n}</span>
               <h3>{t}</h3>
               <p>{d}</p>
-              <span className="card-arrow">↗</span>
+              <div className="service-detail">
+                {items.map((item) => <span key={item}>{item}</span>)}
+              </div>
+              <button className="card-arrow" aria-label={`Explore ${t}`}>{activeExpertise === n ? "×" : "+"}</button>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="credentials section">
+        <div className="section-heading animate-in">
+          <div>
+            <p className="eyebrow">PROFESSIONAL CREDENTIALS</p>
+            <h2>Professionally recognised.<br />Technically grounded.</h2>
+          </div>
+          <p>Engineering judgement supported by professional accountability, technology practice and project delivery discipline.</p>
+        </div>
+        <div className="credential-grid">
+          {[
+            ["P.E.", "PROFESSIONAL ACCOUNTABILITY", "Professional Engineer", "BEM"],
+            ["M.I.E.M.", "ENGINEERING PROFESSION", "Corporate Member", "IEM"],
+            ["Ts.", "TECHNOLOGY PRACTICE", "Professional Technologist", "MBOT"],
+            ["PMP®", "PROJECT DELIVERY", "Project Management Professional", "PMI"],
+          ].map(([mark, role, title, body], i) => (
+            <article className="credential-card animate-in" key={mark}>
+              <span className="credential-index">0{i + 1}</span>
+              <strong>{mark}</strong>
+              <em>{role}</em>
+              <h3>{title}</h3>
+              <p>{body}</p>
+            </article>
+          ))}
+        </div>
+        <div className="credential-signature animate-in">
+          <span>ENGINEERING JUDGEMENT</span><i>×</i><span>DELIVERY DISCIPLINE</span>
         </div>
       </section>
 

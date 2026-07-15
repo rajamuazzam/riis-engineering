@@ -1,17 +1,17 @@
-# RIIS Engineering V1.2.12b — Literal XML Sitemap Hotfix
+# RIIS Engineering V1.3A — Engineering Experience & Credentials
 
-Based on V1.2.12a.
+Built from frozen V1.2.12b live baseline.
 
-## Root cause
-The Next.js sitemap metadata route built successfully under `output: export`,
-but the live sitemap was not being presented to Google as a clean literal XML
-sitemap. Search Console reported `Couldn't fetch` / `Unknown`.
+Added:
+- 5-stage scroll-driven engineering story: Structure → Load → Mesh → Response → Engineering Decision
+- SVG structural response / FEA contour sequence controlled by GSAP ScrollTrigger
+- Professional Credentials section: P.E., M.I.E.M., Ts., PMP®
+- Interactive expertise cards with capability drill-down
+- Responsive mobile treatment
 
-## Fix
-- Removed `app/sitemap.js`
-- Added literal `public/sitemap.xml`
-- Removed `app/robots.js`
-- Added literal `public/robots.txt`
-- Sitemap canonical URL remains https://www.riis.engineering/
-
-No visual, content, navbar, logo, or WhatsApp changes.
+Preserved:
+- Existing navbar and approved RIIS logo
+- WhatsApp dual engineering desk
+- Existing content sections
+- SEO / Open Graph
+- Literal sitemap.xml and robots.txt
