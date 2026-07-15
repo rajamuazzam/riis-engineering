@@ -1,13 +1,14 @@
-# RIIS Engineering V1.2.12 — Brand Share & SEO Foundation
-Based on frozen V1.2.11 visual design.
+# RIIS Engineering V1.2.12a — Static Export Hotfix
 
-Added:
-- RIIS favicon and Apple touch icon
-- 1200×630 Open Graph social image
-- WhatsApp / LinkedIn social preview metadata
-- canonical URL
-- SEO title, description and keywords
-- robots route
-- sitemap.xml route
+Fixes Cloudflare Pages / Next.js static export build failure.
 
-No visual page redesign.
+## Root cause
+Next.js `output: export` requires metadata routes such as `/sitemap.xml`
+and `/robots.txt` to be explicitly static.
+
+## Fix
+- Added `export const dynamic = "force-static"` to `sitemap.js`
+- Added `export const dynamic = "force-static"` to `robots.js`
+- Replaced runtime `new Date()` in sitemap with a fixed ISO date
+
+Visual design and WhatsApp behaviour are unchanged.
