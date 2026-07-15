@@ -1,12 +1,13 @@
-# RIIS Engineering V1.3A1 — Cloudflare Install Hotfix
+# RIIS Engineering V1.4.1 — R&D Conversion Path
 
-Root cause shown in Cloudflare log:
-`npm clean-install` failed inside npm itself with `Exit handler never called!`
-before `npm run build` was executed.
+Built on V1.4. FEA is repositioned as **FEA & Design Development**.
 
-Fix:
-- Removed package-lock.json so Cloudflare Pages uses `npm install`
-  rather than `npm clean-install`.
-- No visual, animation, credential, WhatsApp, SEO, sitemap or content changes.
+## R&D visitor journey
+UNDERSTAND OR DEVELOP A DESIGN?
+→ What are you trying to learn?
+→ Develop & optimise a design
+→ Concept → Simulate → Understand → Iterate → Verify
+→ Staged commercial approach: Explore → Simulate → Develop → Verify
+→ Contextual WhatsApp enquiry
 
-Local V1.3A production build had already completed successfully.
+Core rule remains: **Simple at first glance. Deep by choice.**
