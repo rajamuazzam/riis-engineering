@@ -1,18 +1,15 @@
-# RIIS Engineering V1.0 — Project Source Build
+# RIIS Engineering V1.1 — Visual Refinement
 
-This version replaces generated/cropped expertise graphics with source project images extracted from the user's Project Summary document.
+V1.1 focuses only on visual refinement.
 
-## Source visual mapping
-- Structural Engineering: structural frame / module model from professional project experience
-- FEA & R&D: finite element result image from professional project experience
-- PMT & Technical Support: offshore execution / installation photograph from professional project experience
+## Included
+- User-provided platform mesh image as the main hero
+- Independent project-source images for Structural, FEA and PMT
+- Simplified professional competence presentation
+- Visual professional-experience gallery
+- Cleaner tools and contact sections
+- No personal names or visible phone numbers
 
-## Image handling
-- No crop
-- No fixed-height image clipping
-- Source images are contained inside a dark RIIS canvas
-- Each expertise section uses one independent source image
-
-## Professional experience wording
-Visuals and examples are presented as selected professional experience.
-Client and project identities remain withheld where confidentiality applies.
+## Visual rule
+One image = one message.
+No hero crop reused as expertise graphics.

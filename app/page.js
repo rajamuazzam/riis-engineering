@@ -4,48 +4,48 @@ import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const paths = {
-  analyse: {
+const expertise = {
+  structural: {
     code: "01",
-    title: "ANALYSE",
-    subtitle: "STRUCTURAL RESPONSE & CAPACITY",
+    label: "STRUCTURAL ENGINEERING",
+    headline: "VERIFY BEFORE YOU MODIFY.",
+    summary: "Assessment, design and verification for new and existing load-bearing systems.",
     image: "/structural-project-source.png",
-    lead: "Know what governs before you change, strengthen or approve.",
-    items: [
-      "Structural design and verification",
+    points: [
+      "Structural design and capacity checks",
       "Existing structure reassessment",
-      "Integrity, life extension and strengthening",
-      "Offshore and brownfield modification",
-      "Lifting and temporary condition checks",
+      "Brownfield modification and load integration",
+      "Integrity, strengthening and life extension",
+      "Lifting and temporary condition verification",
     ],
     proof: "SACS · MATHCAD · API · AISC · ISO",
-    message: "Hi RIIS Engineering, I would like to discuss a structural analysis or verification scope and fee.",
+    message: "Hi RIIS Engineering, I would like to discuss a structural engineering scope and fee.",
   },
-  develop: {
+  fea: {
     code: "02",
-    title: "DEVELOP",
-    subtitle: "FEA · SIMULATION · R&D",
+    label: "FEA & R&D",
+    headline: "UNDERSTAND BEFORE YOU BUILD.",
+    summary: "Simulation-led engineering for local response, design development and optimisation.",
     image: "/fea-project-source.png",
-    lead: "Use simulation to decide which design deserves the next iteration.",
-    items: [
-      "Local stress and deformation",
-      "Linear and nonlinear FEA",
-      "Contact and complex geometry",
-      "Concept comparison and optimisation",
-      "Simulation-led product development",
+    points: [
+      "Linear and nonlinear finite element analysis",
+      "Local stress, deformation and contact",
+      "Concept comparison and design iteration",
+      "Engineering-led R&D for load-bearing products",
+      "Global-to-local assessment where required",
     ],
     proof: "ABAQUS · SACS · MATHCAD · API · ISO · DNV",
     message: "Hi RIIS Engineering, I have a design or R&D idea and would like to discuss how FEA can support its development, including scope and fee.",
   },
-  deliver: {
+  pmt: {
     code: "03",
-    title: "DELIVER",
-    subtitle: "PROJECT MANAGEMENT & TECHNICAL SUPPORT",
+    label: "PROJECT MANAGEMENT & TECHNICAL SUPPORT",
+    headline: "KEEP THE ENGINEERING MOVING.",
+    summary: "Project management discipline and technical coordination for clearer delivery.",
     image: "/pmt-project-source.jpg",
-    lead: "Keep engineering moving with clear scope, control and technical decisions.",
-    items: [
+    points: [
       "Scope and deliverable definition",
-      "Technical coordination and interfaces",
+      "Engineering coordination and interfaces",
       "Progress, risk and action tracking",
       "Independent technical review",
       "PMT and engineering decision support",
@@ -54,6 +54,15 @@ const paths = {
     message: "Hi RIIS Engineering, I would like to discuss project management and technical support, including the support arrangement and fee.",
   },
 };
+
+const experience = [
+  { title: "OFFSHORE MODIFICATION", sub: "Reassessment · Load integration · Constructability", image: "/gallery-offshore.png", route: "structural" },
+  { title: "STRUCTURAL SYSTEMS", sub: "Model · Capacity · Verification", image: "/gallery-structural.png", route: "structural" },
+  { title: "FEA & DEVELOPMENT", sub: "Simulation · Iteration · Optimisation", image: "/gallery-fea.png", route: "fea" },
+  { title: "SUBSEA COMPONENTS", sub: "Global-local · Load-bearing systems", image: "/gallery-subsea.png", route: "fea" },
+  { title: "MARINE & INSTALLATION", sub: "Lifting · Temporary · Offshore execution", image: "/gallery-marine.png", route: "structural" },
+  { title: "TECHNICAL DELIVERY", sub: "PMT · Coordination · Assurance", image: "/gallery-technical.png", route: "pmt" },
+];
 
 export default function Home() {
   const [active, setActive] = useState(null);
@@ -64,25 +73,16 @@ export default function Home() {
     const ctx = gsap.context(() => {
       gsap.from(".hero-copy > *", {
         opacity: 0,
-        y: 24,
+        y: 22,
         duration: 0.85,
-        stagger: 0.08,
+        stagger: 0.07,
         ease: "power3.out",
       });
-      gsap.to(".hero-image", {
-        scale: 1.06,
-        yPercent: -2,
-        scrollTrigger: {
-          trigger: ".hero",
-          start: "top top",
-          end: "bottom top",
-          scrub: 0.8,
-        },
-      });
+
       gsap.utils.toArray(".reveal").forEach((el) => {
         gsap.from(el, {
           opacity: 0,
-          y: 24,
+          y: 22,
           duration: 0.75,
           ease: "power3.out",
           scrollTrigger: { trigger: el, start: "top 88%", once: true },
@@ -107,93 +107,92 @@ export default function Home() {
           <img src="/riis-navbar-master-transparent.png" alt="RIIS Engineering" />
         </a>
         <div className="nav-links">
-          <a href="#services">Expertise</a>
-          <a href="#proof">Why RIIS</a>
-          <a href="#contact">Contact</a>
+          <a href="#expertise">Expertise</a>
+          <a href="#trust">Why RIIS</a>
+          <a href="#experience">Experience</a>
         </div>
-        <button onClick={() => setContactOpen(true)}>TALK TO RIIS</button>
+        <button onClick={() => setContactOpen(true)}>DISCUSS A PROJECT</button>
       </nav>
 
       <section className="hero" id="top">
-        <img className="hero-image" src="/riis-v2-approved-platform-fea.jpg" alt="Offshore platform structural model with finite element response contours" />
+        <img className="hero-image" src="/riis-v11-platform-mesh-hero.jpg" alt="RIIS offshore platform finite element mesh visual" />
         <div className="hero-overlay" />
         <div className="hero-copy">
-          <p className="eyebrow">STRUCTURAL · FEA / R&D · PMT</p>
+          <p className="eyebrow">STRUCTURAL ENGINEERING · FEA / R&D · PMT</p>
           <h1>ENGINEERING CLARITY<br />FOR COMPLEX STRUCTURES.</h1>
-          <p className="hero-sub">Independent structural engineering, finite element analysis and project management support.</p>
+          <p>Independent structural engineering, finite element analysis and project management support.</p>
           <div className="hero-actions">
-            <a href="#services" className="button light">EXPLORE OUR EXPERTISE <span>↗</span></a>
-            <button className="button outline" onClick={() => setContactOpen(true)}>TALK TO RIIS</button>
+            <a className="button light" href="#expertise">EXPLORE EXPERTISE ↘</a>
+            <button className="button outline" onClick={() => setContactOpen(true)}>DISCUSS YOUR PROJECT</button>
           </div>
-          <div className="sequence"><span>STRUCTURE</span><i>→</i><span>MESH</span><i>→</i><b>RESPONSE</b></div>
         </div>
       </section>
 
-      <section className="services-intro section" id="services">
-        <div className="section-head reveal">
-          <p className="eyebrow">OUR EXPERTISE</p>
-          <h2>Three ways RIIS can support your engineering decision.</h2>
-        </div>
+      <section className="expertise-intro section" id="expertise">
+        <p className="eyebrow reveal">OUR EXPERTISE</p>
+        <h2 className="reveal">Three ways RIIS supports an engineering decision.</h2>
       </section>
 
-      {Object.entries(paths).map(([key, item], index) => (
-        <section className={`service-story ${index % 2 ? "reverse" : ""}`} id={key} key={key}>
-          <div className="service-story-copy reveal">
-            <p className="eyebrow">{item.code} / {item.subtitle}</p>
-            <h2>{key === "analyse" ? "VERIFY BEFORE YOU MODIFY." : key === "develop" ? "UNDERSTAND BEFORE YOU BUILD." : "KEEP THE ENGINEERING MOVING."}</h2>
-            <p>{item.lead}</p>
-            <button onClick={() => setActive(key)}>EXPLORE {item.title} ↗</button>
+      {Object.entries(expertise).map(([key, item], index) => (
+        <section className={`expertise-panel ${index % 2 ? "reverse" : ""}`} key={key}>
+          <div className="expertise-copy reveal">
+            <p className="eyebrow">{item.code} / {item.label}</p>
+            <h2>{item.headline}</h2>
+            <p>{item.summary}</p>
+            <button className="text-link" onClick={() => setActive(key)}>EXPLORE {item.label} ↗</button>
           </div>
-          <button className="service-story-visual reveal" onClick={() => setActive(key)}>
-            <img src={item.image} alt={item.subtitle} />
-            <span>{item.code}</span>
+          <button className="expertise-image reveal" onClick={() => setActive(key)} aria-label={`Explore ${item.label}`}>
+            <img src={item.image} alt={item.label} />
           </button>
         </section>
       ))}
 
-      <section className="proof section" id="proof">
-        <div className="proof-lead reveal">
+      <section className="trust section" id="trust">
+        <div className="trust-copy reveal">
           <p className="eyebrow">WHY RIIS</p>
-          <h2>Because engineering decisions have consequences.</h2>
+          <h2>Engineering competence you can rely on.</h2>
+          <p>Professionally recognised engineering personnel with relevant structural, FEA and project delivery experience.</p>
         </div>
-        <div className="proof-grid reveal">
-          <div><strong>20+</strong><span>YEARS<br/>COLLECTIVE EXPERIENCE</span></div>
-          <div><strong>P.E.</strong><span>BEM<br/>PROFESSIONAL ENGINEER</span></div>
-          <div><strong>M.I.E.M.</strong><span>IEM<br/>CORPORATE MEMBER</span></div>
-          <div><strong>Ts.</strong><span>MBOT<br/>PROFESSIONAL TECHNOLOGIST</span></div>
-          <div><strong>PMP®</strong><span>PMI<br/>PROJECT MANAGEMENT</span></div>
-        </div>
-        <div className="proof-strip reveal">
-          <span>OFFSHORE</span><span>SUBSEA</span><span>BROWNFIELD</span><span>MARINE</span><span>ONSHORE</span><span>R&D</span>
+        <div className="credential-list reveal">
+          <div><strong>20+</strong><span>YEARS COLLECTIVE EXPERIENCE</span></div>
+          <div><strong>P.E.</strong><span>PROFESSIONAL ENGINEER · BEM</span></div>
+          <div><strong>M.I.E.M.</strong><span>CORPORATE MEMBER · IEM</span></div>
+          <div><strong>Ts.</strong><span>PROFESSIONAL TECHNOLOGIST · MBOT</span></div>
+          <div><strong>PMP®</strong><span>PROJECT MANAGEMENT · PMI</span></div>
         </div>
       </section>
 
-      <section className="experience section">
+      <section className="experience section" id="experience">
         <div className="section-head reveal">
-          <p className="eyebrow">SELECTED EXPERIENCE</p>
-          <h2>Close to the problem.</h2>
+          <p className="eyebrow">SELECTED PROFESSIONAL EXPERIENCE</p>
+          <h2>Experience close to the problem.</h2>
         </div>
-        <div className="experience-grid">
-          <button onClick={() => setActive("analyse")}><span>01</span><h3>OFFSHORE MODIFICATION</h3><p>Reassessment · Load integration · Constructability</p><b>↗</b></button>
-          <button onClick={() => setActive("develop")}><span>02</span><h3>FEA & ENGINEERING DEVELOPMENT</h3><p>Global-local · Simulation · Optimisation</p><b>↗</b></button>
-          <button onClick={() => setActive("analyse")}><span>03</span><h3>STRUCTURAL INTEGRITY</h3><p>Life extension · Anomaly · Strengthening</p><b>↗</b></button>
-          <button onClick={() => setActive("deliver")}><span>04</span><h3>TECHNICAL DELIVERY</h3><p>PMT · Coordination · Assurance</p><b>↗</b></button>
+        <div className="experience-gallery">
+          {experience.map((item, i) => (
+            <button className="experience-card reveal" key={item.title} onClick={() => setActive(item.route)}>
+              <img src={item.image} alt="" />
+              <div className="experience-shade" />
+              <span>0{i + 1}</span>
+              <h3>{item.title}</h3>
+              <p>{item.sub}</p>
+              <b>↗</b>
+            </button>
+          ))}
         </div>
+        <p className="experience-note">CLIENT AND PROJECT IDENTITIES ARE WITHHELD WHERE CONFIDENTIALITY APPLIES.</p>
       </section>
 
-      <section className="validation section">
+      <section className="tools section">
         <p className="eyebrow reveal">TOOLS & DESIGN BASIS</p>
-        <div className="validation-strip reveal">
+        <div className="tools-line reveal">
           <span>SACS</span><span>ABAQUS</span><span>MATHCAD</span><span>API</span><span>AISC</span><span>ISO</span><span>DNV</span><span>AWS</span>
         </div>
       </section>
 
-      <section className="contact section" id="contact">
-        <div className="contact-line" />
+      <section className="contact section">
         <p className="eyebrow">DRAWING · SKETCH · MODEL · SCREENSHOT · IDEA</p>
-        <h2>HAVE SOMETHING<br/>TO SOLVE?</h2>
-        <strong>SHOW US.</strong>
-        <button className="button light" onClick={() => setContactOpen(true)}>START A DISCUSSION <span>↗</span></button>
+        <h2>EVERY PROJECT STARTS<br />WITH A CONVERSATION.</h2>
+        <button className="button light" onClick={() => setContactOpen(true)}>START A DISCUSSION ↗</button>
       </section>
 
       <footer>
@@ -208,22 +207,23 @@ export default function Home() {
 
       {active && (
         <div className="drawer-shell">
-          <button className="backdrop" onClick={() => setActive(null)} />
+          <button className="backdrop" onClick={() => setActive(null)} aria-label="Close" />
           <aside className="drawer">
             <div className="drawer-top">
-              <span>{paths[active].code} / {paths[active].title}</span>
+              <span>{expertise[active].code} / {expertise[active].label}</span>
               <button onClick={() => setActive(null)}>×</button>
             </div>
             <div className="drawer-body">
-              <p className="eyebrow">{paths[active].subtitle}</p>
-              <h2>{paths[active].lead}</h2>
+              <img src={expertise[active].image} alt={expertise[active].label} />
+              <p className="eyebrow">{expertise[active].label}</p>
+              <h2>{expertise[active].headline}</h2>
               <div className="drawer-list">
-                {paths[active].items.map((x, i) => <div key={x}><span>0{i+1}</span><p>{x}</p></div>)}
+                {expertise[active].points.map((point, i) => (
+                  <div key={point}><span>0{i + 1}</span><p>{point}</p></div>
+                ))}
               </div>
-              {active === "develop" && <div className="flow">CONCEPT → SIMULATE → UNDERSTAND → ITERATE → VERIFY</div>}
-              {active === "deliver" && <div className="flow">SCOPE → PLAN → CONTROL → DELIVER</div>}
-              <div className="drawer-proof">{paths[active].proof}</div>
-              <button className="drawer-cta" onClick={() => { setActive(null); setContactOpen(true); }}>DISCUSS SCOPE & FEE <span>↗</span></button>
+              <div className="drawer-proof">{expertise[active].proof}</div>
+              <button className="drawer-cta" onClick={() => { setActive(null); setContactOpen(true); }}>DISCUSS SCOPE & FEE ↗</button>
             </div>
           </aside>
         </div>
@@ -231,16 +231,20 @@ export default function Home() {
 
       {contactOpen && (
         <div className="modal-shell">
-          <button className="backdrop" onClick={() => setContactOpen(false)} />
+          <button className="backdrop" onClick={() => setContactOpen(false)} aria-label="Close" />
           <div className="contact-card">
             <button className="modal-close" onClick={() => setContactOpen(false)}>×</button>
             <p className="eyebrow">START AN ENGINEERING DISCUSSION</p>
-            <h2>Route your enquiry by engineering need.</h2>
-            <a href={wa("60178041235", active ? paths[active].message : paths.analyse.message)} target="_blank" rel="noreferrer">
-              <span>STRUCTURAL & FEA</span><b>Analysis · Integrity · Offshore · Simulation · R&D</b><i>↗</i>
+            <h2>Choose the support you need.</h2>
+            <a href={wa("60178041235", active ? expertise[active].message : expertise.structural.message)} target="_blank" rel="noreferrer">
+              <span>STRUCTURAL & FEA</span>
+              <b>Analysis · Integrity · Offshore · Simulation · R&D</b>
+              <i>↗</i>
             </a>
-            <a href={wa("601119788718", active ? paths[active].message : paths.deliver.message)} target="_blank" rel="noreferrer">
-              <span>PROJECT & TECHNICAL</span><b>Project Management · Coordination · Technical Support</b><i>↗</i>
+            <a href={wa("601119788718", active ? expertise[active].message : expertise.pmt.message)} target="_blank" rel="noreferrer">
+              <span>PROJECT & TECHNICAL</span>
+              <b>Project Management · Coordination · Technical Support</b>
+              <i>↗</i>
             </a>
             <small>CONFIDENTIAL · INITIAL DISCUSSION WITHOUT OBLIGATION · SCOPE-DRIVEN FEE</small>
           </div>
