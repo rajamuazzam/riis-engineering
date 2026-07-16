@@ -1,11 +1,17 @@
-# RIIS V2.0a — Next Config Hotfix
+# RIIS V2.1 — Course Correction
 
-Fixes Cloudflare failure:
-`Failed to load next.config.mjs`
-`SyntaxError: Invalid or unexpected token`
+This version deliberately returns to the approved visual benchmark and removes the over-complicated direction.
 
-Changes:
-- Rewrote next.config.mjs in plain ASCII / Unix line endings.
-- Removed generated out/ directory from release.
-- No visual, content, WhatsApp, SEO or sitemap changes.
-- No package-lock.json included.
+## Changes
+- Uses approved hero and service graphics from the premium RIIS mockup
+- Dark theme maintained throughout the main journey
+- Three clear outcomes only: ANALYSE · DEVELOP · DELIVER
+- Psychology: visual hook → self-identification → proof → easy contact
+- Shorter copy
+- PMT remains a full core pillar
+- No personal names
+- No visible phone numbers
+- Technical depth stays behind click
+
+## Build
+Static Next.js export for Cloudflare Pages.
