@@ -103,15 +103,18 @@ export default function Home() {
   return (
     <main>
       <nav className="navbar">
-        <a href="#top" className="brand">
-          <img src="/riis-navbar-master-transparent.png" alt="RIIS Engineering" />
+        <a href="#top" className="brand brand-fea" aria-label="RIIS Engineering">
+          <strong>RIIS</strong>
+          <span>ENGINEERING</span>
         </a>
         <div className="nav-links">
           <a href="#expertise">Expertise</a>
-          <a href="#trust">Why RIIS</a>
           <a href="#experience">Experience</a>
+          <a href="#trust">About RIIS</a>
+          <a href="#tools">Tools</a>
+          <a href="#contact">Contact</a>
         </div>
-        <button onClick={() => setContactOpen(true)}>DISCUSS A PROJECT</button>
+        <button onClick={() => setContactOpen(true)}>TALK TO RIIS →</button>
       </nav>
 
       <section className="hero" id="top">
@@ -119,53 +122,53 @@ export default function Home() {
         <div className="hero-overlay" />
         <div className="hero-copy">
           <p className="eyebrow">STRUCTURAL ENGINEERING · FEA / R&D · PMT</p>
-          <h1>ENGINEERING CLARITY<br />FOR COMPLEX STRUCTURES.</h1>
+          <h1>ENGINEERING<br />CLARITY FOR<br />COMPLEX<br />STRUCTURES<span>.</span></h1>
           <p>Independent structural engineering, finite element analysis and project management support.</p>
           <div className="hero-actions">
-            <a className="button light" href="#expertise">EXPLORE EXPERTISE ↘</a>
-            <button className="button outline" onClick={() => setContactOpen(true)}>DISCUSS YOUR PROJECT</button>
+            <a className="button light" href="#expertise">EXPLORE OUR EXPERTISE →</a>
+            <button className="button outline" onClick={() => setContactOpen(true)}>TALK TO RIIS →</button>
           </div>
         </div>
       </section>
 
-      <section className="expertise-intro section" id="expertise">
-        <p className="eyebrow reveal">OUR EXPERTISE</p>
-        <h2 className="reveal">Three ways RIIS supports an engineering decision.</h2>
-      </section>
-
-      {Object.entries(expertise).map(([key, item], index) => (
-        <section className={`expertise-panel ${index % 2 ? "reverse" : ""}`} key={key}>
-          <div className="expertise-copy reveal">
-            <p className="eyebrow">{item.code} / {item.label}</p>
+      <section className="expertise-grid" id="expertise">
+        {Object.entries(expertise).map(([key, item]) => (
+          <button className="expertise-card reveal" key={key} onClick={() => setActive(key)}>
+            <img src={item.image} alt={item.label} />
+            <div className="expertise-shade" />
+            <span>{item.code}</span>
+            <small>{item.label}</small>
             <h2>{item.headline}</h2>
             <p>{item.summary}</p>
-            <button className="text-link" onClick={() => setActive(key)}>EXPLORE {item.label} ↗</button>
-          </div>
-          <button className="expertise-image reveal" onClick={() => setActive(key)} aria-label={`Explore ${item.label}`}>
-            <img src={item.image} alt={item.label} />
+            <b>EXPLORE →</b>
           </button>
-        </section>
-      ))}
+        ))}
+      </section>
 
-      <section className="trust section" id="trust">
-        <div className="trust-copy reveal">
-          <p className="eyebrow">WHY RIIS</p>
-          <h2>Engineering competence you can rely on.</h2>
-          <p>Professionally recognised engineering personnel with relevant structural, FEA and project delivery experience.</p>
+      <section className="credentials section" id="trust">
+        <div className="credential-left reveal">
+          <p className="eyebrow">ENGINEERING CREDENTIALS</p>
+          <div className="credential-logos">
+            <div><strong>BEM</strong><span>PROFESSIONAL ENGINEER</span></div>
+            <div><strong>IEM</strong><span>CORPORATE MEMBER</span></div>
+            <div><strong>MBOT</strong><span>PROFESSIONAL TECHNOLOGIST</span></div>
+            <div><strong>PMI</strong><span>PROJECT MANAGEMENT PROFESSIONAL</span></div>
+          </div>
         </div>
-        <div className="credential-list reveal">
-          <div><strong>20+</strong><span>YEARS COLLECTIVE EXPERIENCE</span></div>
-          <div><strong>P.E.</strong><span>PROFESSIONAL ENGINEER · BEM</span></div>
-          <div><strong>M.I.E.M.</strong><span>CORPORATE MEMBER · IEM</span></div>
-          <div><strong>Ts.</strong><span>PROFESSIONAL TECHNOLOGIST · MBOT</span></div>
-          <div><strong>PMP®</strong><span>PROJECT MANAGEMENT · PMI</span></div>
+        <div className="credential-years reveal">
+          <strong>20+</strong>
+          <span>YEARS<br />OF COLLECTIVE EXPERIENCE</span>
+        </div>
+        <div className="credential-sectors reveal">
+          <span>OFFSHORE</span><span>MARINE</span><span>SUBSEA</span>
+          <span>ONSHORE</span><span>BROWNFIELD</span><span>R&D</span>
         </div>
       </section>
 
       <section className="experience section" id="experience">
         <div className="section-head reveal">
           <p className="eyebrow">SELECTED PROFESSIONAL EXPERIENCE</p>
-          <h2>Experience close to the problem.</h2>
+          <h2>Past project experience.</h2>
         </div>
         <div className="experience-gallery">
           {experience.map((item, i) => (
@@ -179,24 +182,35 @@ export default function Home() {
             </button>
           ))}
         </div>
-        <p className="experience-note">CLIENT AND PROJECT IDENTITIES ARE WITHHELD WHERE CONFIDENTIALITY APPLIES.</p>
+        <p className="experience-note">SELECTED PROFESSIONAL EXPERIENCE · CLIENT IDENTITIES WITHHELD WHERE CONFIDENTIALITY APPLIES.</p>
       </section>
 
-      <section className="tools section">
+      <section className="tools section" id="tools">
         <p className="eyebrow reveal">TOOLS & DESIGN BASIS</p>
         <div className="tools-line reveal">
           <span>SACS</span><span>ABAQUS</span><span>MATHCAD</span><span>API</span><span>AISC</span><span>ISO</span><span>DNV</span><span>AWS</span>
         </div>
       </section>
 
-      <section className="contact section">
-        <p className="eyebrow">DRAWING · SKETCH · MODEL · SCREENSHOT · IDEA</p>
-        <h2>EVERY PROJECT STARTS<br />WITH A CONVERSATION.</h2>
-        <button className="button light" onClick={() => setContactOpen(true)}>START A DISCUSSION ↗</button>
+      <section className="contact section" id="contact">
+        <div className="contact-copy">
+          <p className="eyebrow">HAVE SOMETHING TO SOLVE?</p>
+          <h2>SHARE YOUR CHALLENGE.<br />WE’LL RESPOND DISCREETLY<br />AND PROFESSIONALLY.</h2>
+          <div className="contact-options">
+            <button onClick={() => { setActive("structural"); setContactOpen(true); }}>DISCUSS STRUCTURAL →</button>
+            <button onClick={() => { setActive("fea"); setContactOpen(true); }}>DISCUSS FEA / R&D →</button>
+            <button onClick={() => { setActive("pmt"); setContactOpen(true); }}>DISCUSS PMT →</button>
+          </div>
+        </div>
+        <div className="contact-visual">
+          <img src="/gallery-offshore.png" alt="Offshore engineering experience" />
+        </div>
       </section>
 
       <footer>
-        <img src="/riis-navbar-master-transparent.png" alt="RIIS Engineering" />
+        <a href="#top" className="brand brand-fea footer-brand">
+          <strong>RIIS</strong><span>ENGINEERING</span>
+        </a>
         <p>Structural Engineering · FEA / R&D · Project Management & Technical Support</p>
         <span>© 2026 RIIS Engineering</span>
       </footer>

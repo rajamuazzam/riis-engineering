@@ -18,3 +18,64 @@ footer{min-height:140px;padding:32px clamp(22px,6vw,105px);display:grid;grid-tem
 .contact-card{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(650px,calc(100vw - 32px));background:#fff;color:var(--dark);padding:50px}.modal-close{position:absolute;right:18px;top:14px}.contact-card h2{font-size:clamp(38px,5vw,58px);line-height:.95;letter-spacing:-.055em;margin:18px 0 34px}.contact-card>a{min-height:90px;border-top:1px solid #d4dce1;display:grid;grid-template-columns:1fr auto;align-items:center;padding:17px 0}.contact-card>a:last-of-type{border-bottom:1px solid #d4dce1}.contact-card>a span{font:700 13px/1 "Space Mono",monospace;color:#0a3158}.contact-card>a b{font-size:11px;color:#687680;margin-top:8px}.contact-card>a i{grid-row:1/3;grid-column:2;font-style:normal;font-size:22px;color:var(--orange)}.contact-card small{display:block;margin-top:21px;font:700 8px/1.6 "Space Mono",monospace;color:#7f8a92}
 @media(max-width:950px){.navbar{grid-template-columns:1fr auto}.nav-links{display:none}.expertise-panel,.expertise-panel.reverse{grid-template-columns:1fr}.expertise-panel.reverse .expertise-copy,.expertise-panel.reverse .expertise-image{order:initial}.trust{grid-template-columns:1fr}.experience-gallery{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.section{padding:76px 20px}.navbar{padding:0 16px}.brand img{width:172px}.navbar>button{font-size:8px;padding:11px}.hero{padding:65px 20px}.hero h1{font-size:54px}.hero-copy>p:not(.eyebrow){font-size:14px}.hero-image{width:140%;left:-18%}.hero-overlay{background:linear-gradient(90deg,#020910 0%,rgba(2,9,16,.9) 64%,rgba(2,9,16,.2))}.expertise-panel{padding:76px 20px;gap:34px;min-height:auto}.credential-list>div{grid-template-columns:120px 1fr}.experience-gallery{grid-template-columns:1fr}.contact h2{font-size:48px}footer{grid-template-columns:1fr;gap:12px}footer img{width:170px}.contact-card{padding:44px 22px 28px}}
+
+
+/* RIIS V1.1 — approved homepage visual */
+.navbar{background:#020910!important;color:#fff!important;border-bottom:1px solid #173044!important}
+.brand-fea{display:inline-flex!important;flex-direction:column;align-items:flex-start}
+.brand-fea strong{font-size:42px;line-height:.8;letter-spacing:.02em;background:linear-gradient(90deg,#1558a5 0%,#17bfd6 25%,#f4cc2e 58%,#ff3d20 100%);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+.brand-fea span{font:700 10px/1 "Space Mono",monospace;letter-spacing:.26em;margin-top:8px;color:#fff}
+.navbar>button{background:transparent!important;border:1px solid var(--orange)!important;color:var(--orange)!important}
+.hero{min-height:720px!important}
+.hero-image{width:68%!important;left:auto!important;right:0!important;object-position:right center!important}
+.hero-overlay{background:linear-gradient(90deg,#020910 0%,#020910 34%,rgba(2,9,16,.82) 49%,rgba(2,9,16,.05) 82%)!important}
+.hero h1{font-size:clamp(52px,6.1vw,88px)!important;max-width:560px}
+.hero h1 span{color:var(--orange)}
+.hero .light{background:var(--orange)!important;color:#fff!important}
+
+.expertise-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #486170;border-bottom:1px solid #486170}
+.expertise-card{min-height:430px;position:relative;overflow:hidden;border:0;border-right:1px solid #486170;background:#071725;text-align:left;padding:22px;cursor:pointer}
+.expertise-card:last-child{border-right:0}
+.expertise-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.expertise-shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(2,9,16,.94),rgba(2,9,16,.2) 70%)}
+.expertise-card>span,.expertise-card small,.expertise-card h2,.expertise-card p,.expertise-card b{position:absolute;z-index:2;left:22px}
+.expertise-card>span{top:22px;color:var(--orange);font-size:25px}
+.expertise-card small{top:60px;max-width:240px;font:700 10px/1.35 "Space Mono",monospace;letter-spacing:.06em}
+.expertise-card h2{bottom:120px;max-width:300px;font-size:30px;line-height:1.03;letter-spacing:-.04em;margin:0}
+.expertise-card p{bottom:68px;right:20px;font-size:12px;line-height:1.45;color:#c4d0d7}
+.expertise-card b{bottom:23px;font:700 10px/1 "Space Mono",monospace}
+
+.credentials{background:#07131e;display:grid;grid-template-columns:1.5fr .45fr .7fr;gap:28px;align-items:center;border-bottom:1px solid #263f52}
+.credential-logos{display:grid;grid-template-columns:repeat(4,1fr);margin-top:20px}
+.credential-logos>div{min-height:120px;border-right:1px solid #496171;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px}
+.credential-logos>div:last-child{border-right:0}
+.credential-logos strong{font-size:26px;color:#fff}
+.credential-logos span{font:700 9px/1.45 "Space Mono",monospace;color:#c1ccd3;margin-top:13px}
+.credential-years{border-left:1px solid #496171;padding-left:30px}
+.credential-years strong{font-size:72px;color:var(--orange);letter-spacing:-.06em}
+.credential-years span{display:block;font:700 11px/1.45 "Space Mono",monospace}
+.credential-sectors{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.credential-sectors span{font:700 10px/1 "Space Mono",monospace;color:#d1dae0}
+
+.contact{padding:0!important;display:grid!important;grid-template-columns:1.05fr .95fr;min-height:310px!important;background:#07131e!important;text-align:left!important;align-items:stretch!important}
+.contact-copy{padding:40px 34px;display:flex;flex-direction:column;justify-content:center}
+.contact-copy h2{font-size:32px!important;line-height:1.04!important;letter-spacing:-.03em!important;margin:16px 0 22px!important}
+.contact-options{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.contact-options button{min-height:58px;border:1px solid #8799a6;background:rgba(2,9,16,.65);font:700 9px/1.3 "Space Mono",monospace;cursor:pointer}
+.contact-visual{position:relative;overflow:hidden}
+.contact-visual img{width:100%;height:100%;object-fit:cover}
+.footer-brand strong{font-size:32px}.footer-brand span{font-size:8px}
+
+@media(max-width:980px){
+  .expertise-grid{grid-template-columns:1fr}
+  .expertise-card{border-right:0;border-bottom:1px solid #486170}
+  .credentials{grid-template-columns:1fr}
+  .credential-years{border-left:0;padding-left:0}
+  .contact{grid-template-columns:1fr!important}
+  .contact-visual{min-height:230px}
+}
+@media(max-width:640px){
+  .hero-image{width:145%!important;left:-18%!important;right:auto!important}
+  .credential-logos{grid-template-columns:repeat(2,1fr)}
+  .contact-options{grid-template-columns:1fr}
+}
