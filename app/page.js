@@ -119,8 +119,8 @@ export default function Home() {
         <div className="hero-overlay" />
         <div className="hero-copy">
           <p className="eyebrow">STRUCTURAL · FEA / R&D · PMT</p>
-          <h1>ENGINEERING<br />THE RESPONSE.</h1>
-          <p className="hero-sub">Focused engineering for complex structures, design development and technical delivery.</p>
+          <h1>ENGINEERING CLARITY<br />FOR COMPLEX STRUCTURES.</h1>
+          <p className="hero-sub">Independent structural engineering, finite element analysis and project management support.</p>
           <div className="hero-actions">
             <a href="#services" className="button light">EXPLORE OUR EXPERTISE <span>↗</span></a>
             <button className="button outline" onClick={() => setContactOpen(true)}>TALK TO RIIS</button>
@@ -129,24 +129,27 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="services section" id="services">
+      <section className="services-intro section" id="services">
         <div className="section-head reveal">
-          <p className="eyebrow">CHOOSE THE OUTCOME</p>
-          <h2>What do you need to move forward?</h2>
-        </div>
-        <div className="service-grid">
-          {Object.entries(paths).map(([key, item]) => (
-            <button className="service-card reveal" key={key} onClick={() => setActive(key)}>
-              <img src={item.image} alt="" />
-              <div className="service-shade" />
-              <span>{item.code}</span>
-              <h3>{item.title}.</h3>
-              <p>{item.subtitle}</p>
-              <b>EXPLORE ↗</b>
-            </button>
-          ))}
+          <p className="eyebrow">OUR EXPERTISE</p>
+          <h2>Three ways RIIS can support your engineering decision.</h2>
         </div>
       </section>
+
+      {Object.entries(paths).map(([key, item], index) => (
+        <section className={`service-story ${index % 2 ? "reverse" : ""}`} id={key} key={key}>
+          <div className="service-story-copy reveal">
+            <p className="eyebrow">{item.code} / {item.subtitle}</p>
+            <h2>{key === "analyse" ? "VERIFY BEFORE YOU MODIFY." : key === "develop" ? "UNDERSTAND BEFORE YOU BUILD." : "KEEP THE ENGINEERING MOVING."}</h2>
+            <p>{item.lead}</p>
+            <button onClick={() => setActive(key)}>EXPLORE {item.title} ↗</button>
+          </div>
+          <button className="service-story-visual reveal" onClick={() => setActive(key)}>
+            <img src={item.image} alt={item.subtitle} />
+            <span>{item.code}</span>
+          </button>
+        </section>
+      ))}
 
       <section className="proof section" id="proof">
         <div className="proof-lead reveal">

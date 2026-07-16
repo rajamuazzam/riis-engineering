@@ -16,3 +16,22 @@ footer{min-height:140px;padding:32px clamp(22px,6vw,105px);display:grid;grid-tem
 .contact-card{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(650px,calc(100vw - 32px));background:#fff;color:var(--dark);padding:50px}.modal-close{position:absolute;right:18px;top:14px}.contact-card h2{font-size:clamp(38px,5vw,58px);line-height:.95;letter-spacing:-.055em;margin:18px 0 34px}.contact-card>a{min-height:90px;border-top:1px solid #d4dce1;display:grid;grid-template-columns:1fr auto;align-items:center;padding:17px 0}.contact-card>a:last-of-type{border-bottom:1px solid #d4dce1}.contact-card>a span{font:700 13px/1 "Space Mono",monospace;color:#0a3158}.contact-card>a b{font-size:11px;color:#687680;margin-top:8px}.contact-card>a i{grid-row:1/3;grid-column:2;font-style:normal;font-size:22px;color:var(--orange)}.contact-card small{display:block;margin-top:21px;font:700 8px/1.6 "Space Mono",monospace;color:#7f8a92}
 @media(max-width:900px){.navbar{grid-template-columns:1fr auto}.nav-links{display:none}.service-grid{grid-template-columns:1fr}.service-card{min-height:430px}.proof-lead{grid-template-columns:1fr}.proof-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.section{padding:76px 20px}.navbar{padding:0 16px}.brand img{width:172px}.navbar>button{font-size:8px;padding:11px}.hero{padding:65px 20px}.hero h1{font-size:60px}.hero-sub{font-size:14px}.hero-image{width:145%;left:-15%;opacity:.72}.hero-overlay{background:linear-gradient(90deg,#020910 0%,rgba(2,9,16,.88) 60%,rgba(2,9,16,.2))}.service-card{min-height:390px}.proof-grid{grid-template-columns:1fr}.proof-strip{display:grid;grid-template-columns:repeat(2,1fr)}.experience-grid{grid-template-columns:1fr}.contact h2{font-size:54px}.contact>strong{font-size:78px}footer{grid-template-columns:1fr;gap:12px}footer img{width:170px}.contact-card{padding:44px 22px 28px}}
+
+/* RIIS V1.0 Restart — one image, one message */
+.services-intro{background:#020910;padding-bottom:55px}
+.service-grid{display:none!important}
+.service-story{min-height:90vh;display:grid;grid-template-columns:.8fr 1.2fr;align-items:center;gap:72px;padding:90px clamp(22px,6vw,105px);border-top:1px solid var(--line);background:#020910}
+.service-story.reverse{grid-template-columns:1.2fr .8fr}
+.service-story.reverse .service-story-copy{order:2}
+.service-story.reverse .service-story-visual{order:1}
+.service-story-copy h2{font-size:clamp(44px,5.6vw,82px);line-height:.9;letter-spacing:-.06em;margin:20px 0}
+.service-story-copy>p:not(.eyebrow){max-width:480px;color:#9db3c2;line-height:1.7}
+.service-story-copy>button{margin-top:24px;border:0;background:transparent;padding:0;color:var(--orange);font:700 9px/1 "Space Mono",monospace;letter-spacing:.1em;cursor:pointer}
+.service-story-visual{position:relative;min-height:620px;border:1px solid var(--line);background:var(--panel);padding:0;overflow:hidden;cursor:pointer}
+.service-story-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .65s ease}
+.service-story-visual:hover img{transform:scale(1.035)}
+.service-story-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(2,9,16,.42),transparent 45%)}
+.service-story-visual span{position:absolute;left:24px;top:22px;z-index:2;font:700 9px/1 "Space Mono",monospace;color:#a9c6d8}
+.contact>strong{display:none!important}
+@media(max-width:900px){.service-story,.service-story.reverse{grid-template-columns:1fr}.service-story.reverse .service-story-copy,.service-story.reverse .service-story-visual{order:initial}.service-story-visual{min-height:500px}}
+@media(max-width:640px){.service-story{padding:76px 20px;gap:38px}.service-story-visual{min-height:390px}.service-story-copy h2{font-size:46px}}
