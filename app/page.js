@@ -329,77 +329,57 @@ export default function Home() {
         </button>
       </nav>
 
-      <section className="hero hero-v142" id="top">
+      <section className="hero hero-v15" id="top">
+        <img className="hero-platform" src="/riis-platform-fea-3d.png" alt="3D offshore structural model transitioning from mesh to finite element response" />
+        <div className="hero-shade" />
         <div className="hero-copy">
-          <p className="eyebrow">STRUCTURAL · FEA · DESIGN DEVELOPMENT</p>
+          <p className="eyebrow">STRUCTURAL · FEA / R&D · PMT</p>
           <h1>ENGINEERING<br />THE RESPONSE.</h1>
-          <div className="hero-actions">
-            <a className="button primary" href="#solve">EXPLORE <Arrow /></a>
-            <button className="button secondary" onClick={() => setWhatsAppOpen(true)}>TALK TO AN ENGINEER</button>
-          </div>
+          <div className="hero-sequence"><span>STRUCTURE</span><i>→</i><span>MESH</span><i>→</i><b>RESPONSE</b></div>
+          <a className="button primary" href="#paths">EXPLORE <Arrow /></a>
         </div>
-
-        <div className="hero-art platform-fea" aria-hidden="true">
-          <div className="hero-grid" />
-          <svg viewBox="0 0 760 650">
-            <defs>
-              <linearGradient id="heroContour" x1="0" x2="1">
-                <stop offset="0" stopColor="#1554a1" />
-                <stop offset=".38" stopColor="#12b8d4" />
-                <stop offset=".7" stopColor="#efd12f" />
-                <stop offset="1" stopColor="#f05a28" />
-              </linearGradient>
-              <radialGradient id="hotspot">
-                <stop offset="0" stopColor="#ff3b1f" stopOpacity=".95"/>
-                <stop offset="1" stopColor="#ff3b1f" stopOpacity="0"/>
-              </radialGradient>
-            </defs>
-            <g className="platform-deck">
-              <path d="M170 210 L510 210 L595 260 L255 260 Z"/>
-              <path d="M205 165 L455 165 L510 210 L170 210 Z"/>
-              <path d="M285 115 L405 115 L455 165 L205 165 Z"/>
-              <path d="M330 70 L380 70 L405 115 L285 115 Z"/>
-            </g>
-            <g className="platform-wire">
-              <path d="M190 260 L90 590 M565 260 L675 590 M275 260 L230 590 M490 260 L535 590"/>
-              <path d="M90 590 L675 590 M230 590 L535 590"/>
-              <path d="M190 260 L535 590 M565 260 L230 590 M275 260 L675 590 M490 260 L90 590"/>
-              <path d="M155 380 L610 380 M120 490 L645 490"/>
-              <path d="M155 380 L645 490 M610 380 L120 490"/>
-            </g>
-            <g className="platform-mesh">
-              {Array.from({length: 10}).map((_,i)=><path key={`m1-${i}`} d={`M${330+i*7} 70 L${90+i*65} 590`}/>)}
-              {Array.from({length: 8}).map((_,i)=><path key={`m2-${i}`} d={`M90 ${310+i*40} L675 ${310+i*40}`}/>)}
-            </g>
-            <path className="platform-response" d="M405 115 L455 165 L510 210 L595 260 L610 380 L645 490 L675 590 L535 590 L490 260 Z" fill="url(#heroContour)"/>
-            <circle className="platform-hotspot" cx="505" cy="275" r="95" fill="url(#hotspot)"/>
-          </svg>
-          <div className="hero-readout">
-            <span>STRUCTURE</span><i>→</i><span>MESH</span><i>→</i><b>RESPONSE</b>
-          </div>
-        </div>
-        <a className="hero-scroll" href="#solve">SCROLL ↓</a>
+        <a className="hero-scroll" href="#paths">SCROLL ↓</a>
       </section>
 
-      <section className="solve section" id="solve">
-        <div className="section-heading reveal compact-heading">
+      <section className="paths section" id="paths">
+        <div className="path-intro reveal">
+          <p className="eyebrow">WHAT NEEDS TO MOVE FORWARD?</p>
+        </div>
+        <div className="path-grid">
+          <button className="path-card analyse reveal" onClick={() => openSolution("capacity")}>
+            <div className="path-scene"><span/><span/><span/></div>
+            <small>01</small><h2>ANALYSE.</h2><p>STRUCTURAL RESPONSE & CAPACITY</p><b>EXPLORE <Arrow /></b>
+          </button>
+          <button className="path-card develop reveal" onClick={() => openSolution("fea")}>
+            <div className="path-scene"><span/><span/><span/></div>
+            <small>02</small><h2>DEVELOP.</h2><p>FEA · SIMULATION · R&D</p><b>EXPLORE <Arrow /></b>
+          </button>
+          <button className="path-card deliver reveal" onClick={() => openSolution("support")}>
+            <div className="path-scene"><span/><span/><span/></div>
+            <small>03</small><h2>DELIVER.</h2><p>PROJECT MANAGEMENT & TECHNICAL SUPPORT</p><b>EXPLORE <Arrow /></b>
+          </button>
+        </div>
+      </section>
+
+      <section className="solve section legacy-solutions" id="solve">
+        <div className="section-heading reveal">
           <div>
-            <p className="eyebrow">START WITH YOUR QUESTION</p>
-            <h2>What are you trying to solve?</h2>
+            <p className="eyebrow">START WITH THE PROBLEM</p>
+            <h2>What do you need to solve?</h2>
           </div>
+          <p>
+            Choose the engineering question closest to your scope. The technical
+            depth is there when you need it.
+          </p>
         </div>
 
-        <div className="solution-grid visual-solution-grid">
+        <div className="solution-grid">
           {solutions.map((item) => (
-            <button className={`solution-card visual-solution ${item.id}`} key={item.id} onClick={() => openSolution(item.id)}>
-              <div className="tile-visual" aria-hidden="true">
-                <span className="tile-grid"/>
-                <span className="tile-structure"/>
-                <span className="tile-response"/>
-                <span className="tile-node n1"/><span className="tile-node n2"/><span className="tile-node n3"/>
-              </div>
+            <button className="solution-card reveal" key={item.id} onClick={() => openSolution(item.id)}>
               <span className="solution-num">{item.num}</span>
               <strong>{item.short}</strong>
+              <h3>{item.title}</h3>
+              <p>{item.intro}</p>
               <span className="explore">EXPLORE <Arrow /></span>
             </button>
           ))}
@@ -409,18 +389,21 @@ export default function Home() {
       <section className="engineering-visual">
         <div className="visual-sticky">
           <div className="visual-copy">
-            <p className="eyebrow">FOLLOW THE RESPONSE</p>
+            <p className="eyebrow">ENGINEERING, NOT JUST ANALYSIS</p>
             <div className="visual-beat">
               <span>01</span>
               <h2>SEE THE LOAD.</h2>
+              <p>Establish the system, the interfaces and the load path.</p>
             </div>
             <div className="visual-beat">
               <span>02</span>
               <h2>UNDERSTAND THE RESPONSE.</h2>
+              <p>Use the right level of modelling to identify global and local behaviour.</p>
             </div>
             <div className="visual-beat visual-decision">
               <span>03</span>
               <h2>MAKE THE DECISION.</h2>
+              <p>Analysis is only useful when it leads to a clear engineering decision.</p>
             </div>
           </div>
 
@@ -501,6 +484,11 @@ export default function Home() {
         </div>
 
         <div className="trust-footer reveal">
+          <p>
+            RIIS is supported by professionally recognised engineering personnel
+            with structural analysis, FEA and project delivery experience across
+            complex engineering scopes.
+          </p>
           <button className="text-link" onClick={() => { setCompetenceOpen(true); setCompetenceLayer("menu"); }}>
             Explore engineering competence <Arrow />
           </button>
@@ -513,7 +501,10 @@ export default function Home() {
             <p className="eyebrow">RELEVANT EXPERIENCE</p>
             <h2>Experience close to the problem.</h2>
           </div>
-
+          <p>
+            Selected experience families reflect the collective professional
+            experience of the RIIS engineering team.
+          </p>
         </div>
 
         <div className="experience-list">
@@ -532,6 +523,7 @@ export default function Home() {
               <span>0{index + 1}</span>
               <div>
                 <h3>{item.title}</h3>
+                <p>{item.text}</p>
                 <small>{item.tags}</small>
               </div>
               <Arrow />
@@ -544,18 +536,13 @@ export default function Home() {
         </p>
       </section>
 
-      <section className="contact section contact-v142" id="contact">
-        <div className="contact-signal" aria-hidden="true">
-          <span/><span/><span/><span/><span/>
-        </div>
+      <section className="contact section contact-v15" id="contact">
+        <div className="contact-line" aria-hidden="true"/>
         <div className="contact-copy reveal">
-          <p className="eyebrow">RIIS ENGINEERING</p>
-          <h2>GOT AN ENGINEERING PROBLEM?</h2>
+          <p className="eyebrow">DRAWING · SKETCH · MODEL · SCREENSHOT · IDEA</p>
+          <h2>HAVE SOMETHING<br />TO SOLVE?</h2>
           <strong>SHOW US.</strong>
-          <button className="button primary contact-talk" onClick={() => setWhatsAppOpen(true)}>
-            TALK TO AN ENGINEER <Arrow />
-          </button>
-          <small>DRAWING · SCREENSHOT · SKETCH · MODEL · IDEA</small>
+          <button className="button primary" onClick={() => setWhatsAppOpen(true)}>TALK TO AN ENGINEER <Arrow /></button>
         </div>
       </section>
 
@@ -811,13 +798,13 @@ export default function Home() {
           <button className="whatsapp-backdrop" onClick={() => setWhatsAppOpen(false)} aria-label="Close WhatsApp options" />
           <div className="whatsapp-card">
             <button className="whatsapp-close" onClick={() => setWhatsAppOpen(false)}>×</button>
-            <p className="eyebrow">TALK TO AN ENGINEER</p>
-            <h2>Who would you like to speak with?</h2>
+            <p className="eyebrow">START AN ENGINEERING DISCUSSION</p>
+            <h2>Route your enquiry by engineering need.</h2>
             <a href={whatsappUrl("60178041235")} target="_blank" rel="noreferrer">
-              <span>RAJA</span><b>Structural · Offshore · Brownfield · FEA</b><Arrow />
+              <span>STRUCTURAL & FEA</span><b>Analysis · Integrity · Offshore · Simulation · R&D</b><Arrow />
             </a>
             <a href={whatsappUrl("601119788718")} target="_blank" rel="noreferrer">
-              <span>LIYIA</span><b>Structural · Analysis · Engineering Support</b><Arrow />
+              <span>PROJECT & TECHNICAL</span><b>Project Management · Coordination · Technical Support</b><Arrow />
             </a>
             <small>CONFIDENTIAL · INITIAL DISCUSSION WITHOUT OBLIGATION</small>
           </div>
