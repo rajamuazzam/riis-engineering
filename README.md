@@ -1,15 +1,12 @@
-# RIIS Engineering V1.1 — Visual Refinement
+# RIIS Engineering V1.1 — Pixel-Locked Concept
 
-V1.1 focuses only on visual refinement.
+This build uses the approved homepage concept as the visual master to preserve the layout, graphics, spacing, credentials and project gallery exactly.
 
-## Included
-- User-provided platform mesh image as the main hero
-- Independent project-source images for Structural, FEA and PMT
-- Simplified professional competence presentation
-- Visual professional-experience gallery
-- Cleaner tools and contact sections
-- No personal names or visible phone numbers
+Approved exception:
+- RIIS logo is plain white, without the FEA colour scheme.
 
-## Visual rule
-One image = one message.
-No hero crop reused as expertise graphics.
+The page includes clickable navigation, service, experience and contact hotspots plus semantic hidden content for accessibility and search engines.
+
+Cloudflare Pages:
+- Build command: `npm run build`
+- Output directory: `out`
