@@ -1,20 +1,11 @@
-# RIIS Engineering V2.0 — Premium Engineering Studio
+# RIIS V2.0a — Next Config Hotfix
 
-V2.0 uses the approved source graphic directly as the hero visual.
+Fixes Cloudflare failure:
+`Failed to load next.config.mjs`
+`SyntaxError: Invalid or unexpected token`
 
-## Psychology
-FEEL → SELF-IDENTIFY → EXPLORE → TRUST → CONTACT
-
-## Core routes
-ANALYSE — Structural response & capacity
-DEVELOP — FEA · Simulation · R&D
-DELIVER — Project Management & Technical Support
-
-## Contact
-No personal names. No visible phone numbers.
-Routes:
-- STRUCTURAL & FEA
-- PROJECT & TECHNICAL
-
-## Visual principle
-SHOW THE ENGINEERING BEFORE EXPLAINING THE ENGINEERING.
+Changes:
+- Rewrote next.config.mjs in plain ASCII / Unix line endings.
+- Removed generated out/ directory from release.
+- No visual, content, WhatsApp, SEO or sitemap changes.
+- No package-lock.json included.

@@ -321,8 +321,8 @@ export default function Home() {
         </a>
         <div className="nav-links">
           <a href="#solve">Solutions</a>
-          <a href="#trust">Competence</a>
-          <a href="#experience">Experience</a>
+          <a href="#trust">Why RIIS</a>
+          <a href="#experience">Engineering</a>
         </div>
         <button className="nav-cta" onClick={() => setWhatsAppOpen(true)}>
           Discuss scope & fee
@@ -330,7 +330,7 @@ export default function Home() {
       </nav>
 
       <section className="hero hero-v15" id="top">
-        <img className="hero-platform" src="/riis-platform-fea-3d.png" alt="3D offshore structural model transitioning from mesh to finite element response" />
+        <img className="hero-platform" src="/riis-v2-approved-platform-fea.jpg" alt="3D offshore structural model transitioning from mesh to finite element response" />
         <div className="hero-shade" />
         <div className="hero-copy">
           <p className="eyebrow">STRUCTURAL · FEA / R&D · PMT</p>
@@ -343,7 +343,7 @@ export default function Home() {
 
       <section className="paths section" id="paths">
         <div className="path-intro reveal">
-          <p className="eyebrow">WHAT NEEDS TO MOVE FORWARD?</p>
+          <p className="eyebrow">WHAT DO YOU NEED TO MOVE FORWARD?</p>
         </div>
         <div className="path-grid">
           <button className="path-card analyse reveal" onClick={() => openSolution("capacity")}>
@@ -541,7 +541,7 @@ export default function Home() {
         <div className="contact-copy reveal">
           <p className="eyebrow">DRAWING · SKETCH · MODEL · SCREENSHOT · IDEA</p>
           <h2>HAVE SOMETHING<br />TO SOLVE?</h2>
-          <strong>SHOW US.</strong>
+          <strong>SHOW US THE CHALLENGE.</strong>
           <button className="button primary" onClick={() => setWhatsAppOpen(true)}>TALK TO AN ENGINEER <Arrow /></button>
         </div>
       </section>
