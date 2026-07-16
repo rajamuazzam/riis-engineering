@@ -35,3 +35,23 @@ footer{min-height:140px;padding:32px clamp(22px,6vw,105px);display:grid;grid-tem
 .contact>strong{display:none!important}
 @media(max-width:900px){.service-story,.service-story.reverse{grid-template-columns:1fr}.service-story.reverse .service-story-copy,.service-story.reverse .service-story-visual{order:initial}.service-story-visual{min-height:500px}}
 @media(max-width:640px){.service-story{padding:76px 20px;gap:38px}.service-story-visual{min-height:390px}.service-story-copy h2{font-size:46px}}
+
+
+/* V1.0 Clean Build — one image, one message */
+.service-visual img{
+  object-fit:contain!important;
+  background:#061522;
+  padding:0!important;
+}
+.service-section{
+  min-height:100vh;
+}
+.service-copy{
+  max-width:580px;
+}
+.service-copy h2{
+  max-width:620px;
+}
+.hero-image{
+  object-fit:cover!important;
+}

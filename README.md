@@ -1,13 +1,14 @@
-# RIIS Engineering V1.0 — Restart
+# RIIS Engineering V1.0 — Clean Build
 
-Clean restart based on one principle:
-**One image = one message.**
+This build fixes the repeated/cropped expertise visuals.
 
-The hero remains one complete offshore / FEA visual.
-Each core service now has its own full visual section:
-- Structural Engineering
-- FEA & R&D
-- Project Management & Technical Support
+## Visual rule
+One image = one message.
 
-No chopped three-card treatment.
-No personal names or visible phone numbers.
+Independent full graphics:
+- Structural Engineering: load path, capacity and critical response
+- FEA & R&D: mesh, response, iteration and optimisation
+- PMT: scope, planning, control and delivery
+
+The hero remains one complete offshore platform + FEA visual.
+No service section reuses or crops the hero image.

@@ -9,7 +9,7 @@ const paths = {
     code: "01",
     title: "ANALYSE",
     subtitle: "STRUCTURAL RESPONSE & CAPACITY",
-    image: "/v21-analyse.jpg",
+    image: "/structural-engineering.svg",
     lead: "Know what governs before you change, strengthen or approve.",
     items: [
       "Structural design and verification",
@@ -25,7 +25,7 @@ const paths = {
     code: "02",
     title: "DEVELOP",
     subtitle: "FEA · SIMULATION · R&D",
-    image: "/v21-develop.jpg",
+    image: "/fea-rnd.svg",
     lead: "Use simulation to decide which design deserves the next iteration.",
     items: [
       "Local stress and deformation",
@@ -41,7 +41,7 @@ const paths = {
     code: "03",
     title: "DELIVER",
     subtitle: "PROJECT MANAGEMENT & TECHNICAL SUPPORT",
-    image: "/v21-deliver.jpg",
+    image: "/pmt-support.svg",
     lead: "Keep engineering moving with clear scope, control and technical decisions.",
     items: [
       "Scope and deliverable definition",
@@ -115,7 +115,7 @@ export default function Home() {
       </nav>
 
       <section className="hero" id="top">
-        <img className="hero-image" src="/v21-hero.jpg" alt="Offshore platform structural model with finite element response contours" />
+        <img className="hero-image" src="/riis-v2-approved-platform-fea.jpg" alt="Offshore platform structural model with finite element response contours" />
         <div className="hero-overlay" />
         <div className="hero-copy">
           <p className="eyebrow">STRUCTURAL · FEA / R&D · PMT</p>
