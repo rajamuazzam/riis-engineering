@@ -9,7 +9,7 @@ const paths = {
     code: "01",
     title: "ANALYSE",
     subtitle: "STRUCTURAL RESPONSE & CAPACITY",
-    image: "/structural-engineering.svg",
+    image: "/structural-project-source.png",
     lead: "Know what governs before you change, strengthen or approve.",
     items: [
       "Structural design and verification",
@@ -25,7 +25,7 @@ const paths = {
     code: "02",
     title: "DEVELOP",
     subtitle: "FEA · SIMULATION · R&D",
-    image: "/fea-rnd.svg",
+    image: "/fea-project-source.png",
     lead: "Use simulation to decide which design deserves the next iteration.",
     items: [
       "Local stress and deformation",
@@ -41,7 +41,7 @@ const paths = {
     code: "03",
     title: "DELIVER",
     subtitle: "PROJECT MANAGEMENT & TECHNICAL SUPPORT",
-    image: "/pmt-support.svg",
+    image: "/pmt-project-source.jpg",
     lead: "Keep engineering moving with clear scope, control and technical decisions.",
     items: [
       "Scope and deliverable definition",
