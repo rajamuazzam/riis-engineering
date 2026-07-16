@@ -1,18 +1,20 @@
-# RIIS Engineering V1.5 — Analyse · Develop · Deliver
+# RIIS Engineering V2.0 — Premium Engineering Studio
 
-Visual benchmark: premium 3D offshore structural model + blue engineering mesh + FEA response contour.
+V2.0 uses the approved source graphic directly as the hero visual.
 
-## Three core RIIS pillars
-- ANALYSE — Structural response & capacity
-- DEVELOP — FEA · Simulation · R&D
-- DELIVER — Project Management & Technical Support
+## Psychology
+FEEL → SELF-IDENTIFY → EXPLORE → TRUST → CONTACT
 
-PMT is now a core pillar and is framed around scope, planning, control, coordination and technical delivery, supported by PMP® project management discipline.
+## Core routes
+ANALYSE — Structural response & capacity
+DEVELOP — FEA · Simulation · R&D
+DELIVER — Project Management & Technical Support
 
-## Contact routing
-No personal names and no visible phone numbers:
+## Contact
+No personal names. No visible phone numbers.
+Routes:
 - STRUCTURAL & FEA
 - PROJECT & TECHNICAL
 
-## Conversion rule
-SHOW → SELF-IDENTIFY → EXPLORE → TRUST → CONTACT
+## Visual principle
+SHOW THE ENGINEERING BEFORE EXPLAINING THE ENGINEERING.
