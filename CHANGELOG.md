@@ -1,14 +1,12 @@
 # RIIS Engineering Changelog
 
-## V1.1 — Approved Visual Build
-- Homepage implemented from the approved visual mockup
-- RIIS wordmark upgraded with FEA heatmap scheme
-- Platform mesh hero retained
-- Three compact expertise panels
-- BEM, IEM, MBOT and PMI credential presentation
-- Past professional project imagery retained
-- Project-focused discussion routes
-- No personal names or visible phone numbers
+## V1.2 — Industry Gateway & Onshore Expansion
+- Added `/` industry gateway for Offshore Energy and Civil & Infrastructure.
+- Preserved the Native Refined offshore scroll page under `/offshore/`.
+- Added a complete native onshore scroll page under `/onshore/`.
+- Added civil capability, credentials, experience, tools and contact sections.
+- Added static sitemap entries for all three routes.
+- Retained static export compatibility for Cloudflare Pages.
 
-## V1.0
-- Initial foundation build
+## V1.1.1 — Native Refined
+- Existing offshore experience retained as the offshore subpage.
