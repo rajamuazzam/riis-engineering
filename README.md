@@ -1,12 +1,13 @@
-# RIIS Engineering V1.1 — Pixel-Locked Concept
+# RIIS V1.1 Native Concept Build
 
-This build uses the approved homepage concept as the visual master to preserve the layout, graphics, spacing, credentials and project gallery exactly.
+This is a fully coded native HTML/CSS/JS implementation of the approved mockup.
 
-Approved exception:
-- RIIS logo is plain white, without the FEA colour scheme.
-
-The page includes clickable navigation, service, experience and contact hotspots plus semantic hidden content for accessibility and search engines.
+- The homepage is not a screenshot.
+- Text, navigation, buttons, cards, credentials, project gallery, contact section and footer are native elements.
+- Images are used only as normal visual assets.
+- Plain RIIS wordmark without FEA scheme.
+- Responsive desktop, tablet and mobile layouts.
 
 Cloudflare Pages:
-- Build command: `npm run build`
-- Output directory: `out`
+- Build command: npm run build
+- Output directory: out
