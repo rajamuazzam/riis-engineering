@@ -1,12 +1,17 @@
 # RIIS Engineering Changelog
 
+## V1.2.1 — Offshore Native Refined Update
+- Replaced `/offshore/` with the exact uploaded **V1.1.1 Native Refined** static source.
+- Preserved its original HTML, CSS, JavaScript, images, credentials logos, contact modal and scroll behaviour.
+- Changed only the Offshore wordmark link so it returns to the main Industry Gateway.
+- Preserved `/` Industry Gateway.
+- Preserved `/onshore/` Civil & Infrastructure scroll page.
+- Revalidated all static routes and Cloudflare Pages export.
+
 ## V1.2 — Industry Gateway & Onshore Expansion
-- Added `/` industry gateway for Offshore Energy and Civil & Infrastructure.
-- Preserved the Native Refined offshore scroll page under `/offshore/`.
-- Added a complete native onshore scroll page under `/onshore/`.
-- Added civil capability, credentials, experience, tools and contact sections.
-- Added static sitemap entries for all three routes.
-- Retained static export compatibility for Cloudflare Pages.
+- Added `/` Industry Gateway.
+- Added `/onshore/`.
+- Integrated an earlier offshore build under `/offshore/`.
 
 ## V1.1.1 — Native Refined
-- Existing offshore experience retained as the offshore subpage.
+- Latest approved Offshore website.
