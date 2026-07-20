@@ -1,113 +1,107 @@
-import Link from "next/link";
-import type { ReactNode } from "react";
-import { ArrowIcon, LockIcon } from "./Icons";
-import { contact, credentials } from "./content";
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
 import styles from "./riis.module.css";
 
-export type Accent = "blue" | "amber" | "green" | "orange";
+const ROUTES = {
+  proposal: {
+    phone: "601152555858",
+    label: "Request Proposal",
+    message: "Hello RIIS Engineering. I would like to request a proposal for our engineering project.",
+  },
+  project: {
+    phone: "601152555858",
+    label: "Discuss New Project",
+    message: "Hello RIIS Engineering. I would like to discuss a new structural engineering project.",
+  },
+  general: {
+    phone: "60178821235",
+    label: "General Enquiry",
+    message: "Hello RIIS Engineering. I have a general enquiry regarding your engineering services.",
+  },
+} as const;
 
-export function Brand() {
+type RouteKey = keyof typeof ROUTES;
+
+function WhatsAppIcon() {
   return (
-    <Link href="/" className={styles.brand} aria-label="RIIS Engineering home">
-      <img
-        className={styles.brandLogo}
-        src="/riis-logo-fea-header.png"
-        alt="RIIS Engineering — Structural, FEA and PMT"
-      />
-    </Link>
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path fill="currentColor" d="M16.03 3.2A12.55 12.55 0 0 0 5.22 22.1L3.5 28.4l6.44-1.69a12.54 12.54 0 1 0 6.09-23.51Zm0 22.86c-2.08 0-4.12-.56-5.9-1.62l-.42-.25-3.82 1 1.02-3.72-.27-.43a10.28 10.28 0 1 1 9.39 5.02Zm5.64-7.7c-.31-.16-1.83-.9-2.12-1-.28-.11-.49-.16-.7.15-.2.31-.8 1-.98 1.2-.18.21-.36.23-.67.08-.31-.16-1.3-.48-2.48-1.53a9.3 9.3 0 0 1-1.72-2.14c-.18-.31-.02-.48.13-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.52.1-.2.05-.39-.03-.54-.08-.16-.7-1.69-.96-2.31-.25-.61-.51-.52-.7-.53h-.6c-.21 0-.54.08-.83.39-.28.31-1.08 1.06-1.08 2.58s1.11 2.99 1.26 3.2c.16.2 2.18 3.33 5.28 4.67.74.32 1.31.51 1.76.65.74.24 1.41.2 1.94.12.59-.09 1.83-.75 2.09-1.47.26-.72.26-1.34.18-1.47-.08-.13-.28-.2-.59-.36Z" />
+    </svg>
   );
 }
 
-export function Header({ active }: { active?: string }) {
-  return (
-    <header className={styles.header}>
-      <Brand />
-      <nav className={styles.nav} aria-label="Primary navigation">
-        <Link className={active === "offshore" ? styles.activeNav : ""} href="/offshore">Offshore</Link>
-        <Link className={active === "onshore" ? styles.activeNav : ""} href="/onshore">Onshore</Link>
-        <Link className={active === "fea" ? styles.activeNav : ""} href="/fea">FEA &amp; R&amp;D</Link>
-        <Link className={active === "pmt" ? styles.activeNav : ""} href="/pmt">PMT</Link>
-      </nav>
-      <a className={styles.headerCta} href={contact.whatsappUrl} target="_blank" rel="noreferrer">
-        Discuss a requirement <ArrowIcon />
-      </a>
-    </header>
-  );
-}
+export function WhatsAppWidget() {
+  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
 
-export function Footer() {
-  return (
-    <footer className={styles.footer}>
-      <Brand />
-      <p>Offshore · Onshore · FEA / R&amp;D · PMP-led PMT support</p>
-      <p>© 2026 RIIS Engineering</p>
-    </footer>
-  );
-}
+  useEffect(() => {
+    const wasDismissed = sessionStorage.getItem("riis-wa-dismissed") === "1";
+    if (wasDismissed) {
+      setDismissed(true);
+      return;
+    }
 
-export function CredentialBand() {
-  return (
-    <section className={styles.credentialBand} aria-label="Professional credentials">
-      <div className={styles.credentialIntro}>
-        <span>Senior engineering judgement</span>
-        <strong>Practical outputs for real decisions.</strong>
-      </div>
-      <div className={styles.credentials}>
-        {credentials.map((item) => (
-          <div key={item.value} className={styles.credential}>
-            <strong>{item.value}</strong>
-            <span>{item.label}</span>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
+    const updateVisibility = () => {
+      const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+      const progress = window.scrollY / maxScroll;
+      if (progress >= 0.2 || window.scrollY >= 320) setVisible(true);
+    };
 
-export function ContactPanel({
-  eyebrow = "CONFIDENTIAL ENQUIRY",
-  title = "Bring the problem. Start with what you have.",
-  copy = "A drawing, sketch, model, photo, schedule or early-stage idea is enough to begin a focused discussion.",
-}: {
-  eyebrow?: string;
-  title?: string;
-  copy?: string;
-}) {
-  return (
-    <section className={styles.contactPanel} id="contact">
-      <div>
-        <span className={styles.eyebrow}>{eyebrow}</span>
-        <h2>{title}</h2>
-        <p>{copy}</p>
-        <div className={styles.confidential}><LockIcon /> Confidential discussion · NDA available</div>
-      </div>
-      <div className={styles.contactActions}>
-        <a className={styles.primaryButton} href={contact.whatsappUrl} target="_blank" rel="noreferrer">
-          Start a discussion <ArrowIcon />
-        </a>
-        <a className={styles.secondaryButton} href={contact.emailUrl}>
-          Send an email <ArrowIcon />
-        </a>
-      </div>
-    </section>
-  );
-}
+    updateVisibility();
+    window.addEventListener("scroll", updateVisibility, { passive: true });
+    return () => window.removeEventListener("scroll", updateVisibility);
+  }, []);
 
-export function PageFrame({
-  children,
-  active,
-  accent,
-}: {
-  children: ReactNode;
-  active?: string;
-  accent: Accent;
-}) {
+  const items = useMemo(() => Object.entries(ROUTES) as [RouteKey, (typeof ROUTES)[RouteKey]][], []);
+
+  const openWhatsApp = (key: RouteKey) => {
+    const route = ROUTES[key];
+    const url = `https://wa.me/${route.phone}?text=${encodeURIComponent(route.message)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  const dismiss = () => {
+    sessionStorage.setItem("riis-wa-dismissed", "1");
+    setDismissed(true);
+    setOpen(false);
+  };
+
+  if (dismissed) return null;
+
   return (
-    <main className={`${styles.page} ${styles[`accent_${accent}`]}`}>
-      <div className={styles.noise} />
-      <Header active={active} />
-      {children}
-      <Footer />
-    </main>
+    <aside
+      id="riis-whatsapp"
+      className={`${styles.whatsappWidget} ${visible ? styles.whatsappVisible : ""} ${open ? styles.whatsappOpen : ""}`}
+      aria-label="Contact RIIS Engineering through WhatsApp"
+    >
+      <section className={styles.whatsappPanel}>
+        <button className={styles.whatsappClose} type="button" onClick={dismiss} aria-label="Close WhatsApp panel">×</button>
+        <span className={styles.whatsappEyebrow}>Engineering consultation</span>
+        <h2>Need structural engineering advice?</h2>
+        <p>Choose the most relevant enquiry and connect with the RIIS Engineering team.</p>
+        <div className={styles.whatsappOptions}>
+          {items.map(([key, route]) => (
+            <button type="button" key={key} onClick={() => openWhatsApp(key)}>
+              <span>{route.label}</span><span aria-hidden="true">→</span>
+            </button>
+          ))}
+        </div>
+        <small>No individual names or phone numbers are displayed.</small>
+      </section>
+
+      <button
+        type="button"
+        className={styles.whatsappBubble}
+        onClick={() => setOpen((value) => !value)}
+        aria-expanded={open}
+        aria-controls="riis-whatsapp-options"
+        aria-label="Open WhatsApp enquiry options"
+      >
+        <WhatsAppIcon />
+        <span>WhatsApp RIIS</span>
+      </button>
+    </aside>
   );
 }
