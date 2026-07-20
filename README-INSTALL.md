@@ -1,52 +1,35 @@
-# RIIS V1.3 — Conversion Pages Patch
+# RIIS V1.3.1 — Four Services Main Page Fix
 
-This patch adds or replaces only these routes:
+This patch corrects the landing page so all four service routes are visible:
 
-- `/` — new four-capability main landing page
-- `/onshore` — conversion-focused Onshore page
-- `/fea` — FEA & R&D page
-- `/pmt` — PMP-led Project Management Team page
+1. Offshore
+2. Onshore
+3. FEA & R&D
+4. PMT — PMP-led delivery
 
-## Offshore is intentionally excluded
+## Important installation method
 
-There is **no `app/offshore` folder in this package**. Copying this patch into the current RIIS Next.js repository will not overwrite the existing Offshore subpage.
+The ZIP opens directly with these folders at its root:
 
-## Installation
+- `app`
+- `components`
+- `public`
 
-1. Back up the current repository.
-2. Copy the contents of this patch into the repository root.
-3. Allow `app/page.tsx` to replace the current main landing page.
-4. Keep the existing `app/offshore` directory exactly as it is.
-5. Run:
+Copy or upload **the contents of the ZIP directly into the repository root** and allow these files to overwrite the matching files.
 
-```bash
-npm install
-npm run dev
-```
+The key replacement is:
 
-6. Check these routes:
+- `app/page.tsx`
 
-```text
-/
-/offshore   existing page — should remain unchanged
-/onshore
-/fea
-/pmt
-```
+## Offshore protection
 
-## Contact details
+There is no `app/offshore` folder in this patch. The existing Offshore subpage is therefore not replaced or modified.
 
-Edit the central contact configuration once:
+## Expected result
 
-```text
-components/riis/content.ts
-```
+The main page shows a 2 × 2 grid:
 
-The current WhatsApp link uses `+60 11-5255 5858`. The email link is set to `hello@riis.engineering` and can be changed in the same file.
+- Offshore | Onshore
+- FEA & R&D | PMT
 
-## Design approach
-
-- Isolated CSS module to minimise impact on the existing Offshore page.
-- No changes to `app/layout.tsx`, `app/globals.css`, `package.json`, or the Offshore route.
-- No external UI or animation dependencies.
-- Responsive desktop, tablet and mobile layouts.
+On mobile, the four cards stack vertically.

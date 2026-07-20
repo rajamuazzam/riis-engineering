@@ -94,8 +94,8 @@
 .visualFrame svg { display: block; width: 100%; height: auto; }
 .visualTag { position: absolute; left: 20px; bottom: 18px; background: rgba(2,8,13,.82); border: 1px solid var(--accent-line); border-radius: 999px; padding: 10px 14px; color: #dcebf3; font-size: 10px; letter-spacing: .13em; }
 
-.homePaths { width: min(1480px, calc(100% - 48px)); margin: 0 auto 88px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; position: relative; z-index: 2; }
-.pathCard { min-height: 530px; padding: 28px; border-radius: 16px; border: 1px solid rgba(255,255,255,.12); background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018)); display: flex; flex-direction: column; overflow: hidden; position: relative; }
+.homePaths { width: min(1280px, calc(100% - 48px)); margin: 0 auto 88px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; position: relative; z-index: 2; }
+.pathCard { min-height: 470px; padding: 28px; border-radius: 16px; border: 1px solid rgba(255,255,255,.12); background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018)); display: flex; flex-direction: column; overflow: hidden; position: relative; }
 .pathCard::after { content: ""; position: absolute; inset: auto -25% -40% -25%; height: 65%; background: radial-gradient(circle, var(--card-accent-soft), transparent 64%); }
 .pathCard:hover { border-color: var(--card-accent-line); }
 .pathCard[data-accent="blue"] { --card-accent: #2ab8ff; --card-accent-soft: rgba(42,184,255,.18); --card-accent-line: rgba(42,184,255,.52); }
@@ -110,10 +110,10 @@
 .pathList { margin: 16px 0 28px; display: grid; gap: 10px; }
 .pathList span { display: flex; align-items: center; gap: 9px; color: #dbe6ec; font-size: 13px; }
 .pathList svg { width: 15px; color: var(--card-accent); }
-.pathImage { height: 150px; margin: -10px -28px 18px; position: relative; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,.08); }
+.pathImage { height: 132px; margin: -10px -28px 18px; position: relative; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,.08); }
 .pathImage img { width: 100%; height: 100%; object-fit: cover; object-position: 66% 33%; opacity: .75; }
 .pathImage::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent, #09131c); }
-.miniVisual { height: 150px; margin: -10px -28px 18px; display: grid; place-items: center; border-bottom: 1px solid rgba(255,255,255,.08); background: radial-gradient(circle at 50% 70%, var(--card-accent-soft), transparent 55%), linear-gradient(145deg,#07111a,#0a1824); position: relative; overflow: hidden; }
+.miniVisual { height: 132px; margin: -10px -28px 18px; display: grid; place-items: center; border-bottom: 1px solid rgba(255,255,255,.08); background: radial-gradient(circle at 50% 70%, var(--card-accent-soft), transparent 55%), linear-gradient(145deg,#07111a,#0a1824); position: relative; overflow: hidden; }
 .miniVisual::before, .miniVisual::after { content: ""; position: absolute; width: 180px; height: 70px; border: 1px solid var(--card-accent-line); transform: skewY(-14deg) rotate(-8deg); }
 .miniVisual::after { transform: skewY(12deg) rotate(8deg); width: 125px; height: 110px; }
 .cardLink { margin-top: auto; color: white; position: relative; z-index: 2; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.1); padding-top: 18px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }

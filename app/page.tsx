@@ -78,8 +78,7 @@ export default function HomePage() {
           Choose the expertise your <span>decision</span> needs.
         </h1>
         <p>
-          Four focused routes. One senior engineering team. Start with the problem,
-          the available information and the decision you need to make.
+          Select one of our four specialist service routes. Offshore remains on its existing page, while Onshore, FEA & R&D and PMT provide focused support for your next decision.
         </p>
       </section>
 

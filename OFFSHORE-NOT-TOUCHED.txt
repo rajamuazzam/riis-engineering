@@ -1,2 +1,1 @@
-The Offshore route is deliberately not included in this patch.
-Existing app/offshore files must remain untouched.
+No app/offshore folder is included. Existing Offshore code remains untouched.

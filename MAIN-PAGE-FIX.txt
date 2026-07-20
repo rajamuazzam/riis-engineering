@@ -1,0 +1,1 @@
+Main page now renders four services in a 2 x 2 desktop grid: Offshore, Onshore, FEA & R&D, and PMT.
