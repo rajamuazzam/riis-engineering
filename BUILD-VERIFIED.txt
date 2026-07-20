@@ -1,0 +1,14 @@
+RIIS v1.3.4 BUILD VERIFICATION
+
+Scenario reproduced:
+- Misplaced /RiisShell.tsx retained at repository root
+- Broken import: ../components/riis/Icons
+- Next.js 15.5.20
+
+Result after applying tsconfig.json:
+- Compiled successfully
+- Type checking passed
+- Static page generation passed
+- Routes generated: /, /fea, /onshore, /pmt
+
+Offshore application files were not included or modified by this patch.
