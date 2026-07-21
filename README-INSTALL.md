@@ -1,12 +1,21 @@
-export const contact = {
-  whatsappUrl:
-    "https://wa.me/601152555858?text=Hello%20RIIS%20Engineering.%20I%20would%20like%20to%20discuss%20an%20engineering%20requirement.",
-  emailUrl: "mailto:hello@riis.engineering?subject=Engineering%20Enquiry",
-};
-
-export const credentials = [
-  { value: "P.E.", label: "Professional Engineer" },
-  { value: "M.I.E.M.", label: "Corporate Member" },
-  { value: "Ts.", label: "Professional Technologist" },
-  { value: "PMP®", label: "Project Management Professional" },
-];
+{
+  "name": "riis-engineering",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "15.5.20",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "20.17.6",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "typescript": "5.8.2"
+  }
+}

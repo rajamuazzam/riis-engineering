@@ -1,21 +1,7 @@
-{
-  "name": "riis-engineering",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "next": "15.5.20",
-    "react": "19.1.1",
-    "react-dom": "19.1.1"
-  },
-  "devDependencies": {
-    "@types/node": "20.17.6",
-    "@types/react": "19.2.17",
-    "@types/react-dom": "19.2.3",
-    "typescript": "5.8.2"
-  }
-}
+const nextConfig = {
+  output: "export",
+  images: { unoptimized: true },
+  trailingSlash: true,
+};
+
+export default nextConfig;

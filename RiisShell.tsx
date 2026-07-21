@@ -1,127 +1,67 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import {
-  CheckIcon,
-  FeaIcon,
-  OffshoreIcon,
-  OnshoreIcon,
-  PmtIcon,
-  ArrowIcon,
-} from "../components/riis/Icons";
-import {
-  ContactPanel,
-  CredentialBand,
-  PageFrame,
-} from "../components/riis/RiisShell";
-import { WhatsAppWidget } from "../components/riis/WhatsAppWidget";
-import styles from "../components/riis/riis.module.css";
+:root{--bg:#071019;--bg2:#0b1622;--panel:#101d2a;--line:rgba(255,255,255,.11);--text:#f4f7fb;--muted:#94a4b8;--blue:#6aa2ff;--orange:#ff7e3d;--max:1280px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}.section{position:relative;padding:120px max(6vw,24px)}.nav{position:fixed;z-index:30;top:0;left:0;right:0;height:78px;padding:0 max(4vw,22px);display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(7,16,25,.88),rgba(7,16,25,.35),transparent);backdrop-filter:blur(10px)}.brand{display:flex;align-items:center;gap:12px;font-size:13px;letter-spacing:.16em}.brand b{font-weight:500;color:var(--muted)}.brand-mark{width:34px;height:34px;border:1px solid rgba(255,255,255,.28);display:grid;place-items:center;font-weight:800;background:linear-gradient(135deg,var(--blue),var(--orange));color:#071019}.nav-links{display:flex;gap:28px;align-items:center;font-size:13px;color:#c8d2df}.nav-links a:hover{color:#fff}.nav-cta{border:1px solid rgba(255,255,255,.22);padding:12px 18px}.hero{min-height:100vh;display:flex;align-items:center;overflow:hidden;padding-top:130px}.hero-canvas,.hero-grid{position:absolute;inset:0;width:100%;height:100%}.hero-canvas{opacity:.72}.hero-grid{background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(to right,#000,transparent 78%)}.hero-content{position:relative;z-index:2;width:min(820px,72vw)}.eyebrow{font-size:11px;letter-spacing:.22em;color:var(--blue);font-weight:700}.hero-title{font-size:clamp(54px,7.8vw,118px);line-height:.88;letter-spacing:-.065em;margin:24px 0 30px;max-width:1080px}.hero-title span{display:block}.hero-copy{font-size:clamp(17px,1.6vw,23px);line-height:1.55;color:#b8c4d2;max-width:720px}.hero-actions{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap}.button{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;font-size:13px;letter-spacing:.04em;border:1px solid var(--line);transition:.25s}.button.primary{background:#f4f7fb;color:#08111b;border-color:#f4f7fb}.button.primary:hover{background:var(--orange);border-color:var(--orange)}.button.ghost:hover{background:rgba(255,255,255,.08)}.mesh-panel{position:absolute;right:-7vw;top:18vh;width:38vw;height:60vh;min-width:420px;border:1px solid rgba(255,255,255,.09);background:linear-gradient(145deg,rgba(105,162,255,.07),rgba(255,126,61,.03));transform-style:preserve-3d;perspective:800px;opacity:.9}.mesh-caption{position:absolute;left:20px;top:18px;font-size:10px;letter-spacing:.16em;color:#8fa2b8}.mesh-caption span{color:var(--orange);margin-right:12px}.mesh-core{position:absolute;inset:16%;transform:skewY(-7deg);background:repeating-linear-gradient(45deg,transparent 0 30px,rgba(106,162,255,.18) 31px 32px),repeating-linear-gradient(-45deg,transparent 0 30px,rgba(255,126,61,.12) 31px 32px)}.mesh-core i{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--orange);box-shadow:0 0 35px rgba(255,126,61,.8)}.mesh-core i:nth-child(1){left:8%;top:15%}.mesh-core i:nth-child(2){left:32%;top:23%}.mesh-core i:nth-child(3){left:58%;top:8%}.mesh-core i:nth-child(4){left:84%;top:26%}.mesh-core i:nth-child(5){left:18%;top:54%}.mesh-core i:nth-child(6){left:48%;top:48%}.mesh-core i:nth-child(7){left:72%;top:58%}.mesh-core i:nth-child(8){left:92%;top:76%}.mesh-core i:nth-child(9){left:12%;top:84%}.mesh-core i:nth-child(10){left:43%;top:88%}.mesh-core i:nth-child(11){left:70%;top:91%}.scroll-cue{position:absolute;left:max(6vw,24px);bottom:28px;font-size:10px;letter-spacing:.18em;color:#7e8fa3}.scroll-cue span{color:var(--orange);margin-left:10px}.intro{display:grid;grid-template-columns:180px 1fr 320px;gap:60px;border-top:1px solid var(--line);align-items:start}.section-label{font-size:10px;letter-spacing:.2em;color:#718398}.intro-copy h2,.section-heading h2,.workflow-wrap h2,.contact h2{font-size:clamp(42px,5vw,76px);line-height:.98;letter-spacing:-.055em;margin:0}.intro-copy p,.section-heading>p,.intro-note p{color:var(--muted);line-height:1.7;font-size:16px}.intro-note{border-left:1px solid var(--line);padding-left:24px}.intro-note span{font-size:10px;letter-spacing:.16em;color:var(--orange)}.services{background:var(--bg2)}.section-heading{max-width:var(--max);margin:auto auto 68px;display:grid;grid-template-columns:1.4fr .7fr;gap:80px;align-items:end}.section-heading h2{margin-top:16px}.service-grid{max-width:var(--max);margin:auto;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}.service-card{position:relative;min-height:320px;padding:28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:.3s;background:rgba(255,255,255,.012)}.service-card:hover{background:rgba(106,162,255,.07);transform:translateY(-4px)}.service-num{font-size:11px;color:var(--orange)}.service-card h3{font-size:25px;letter-spacing:-.03em;margin:70px 0 18px}.service-card p{color:var(--muted);line-height:1.65;font-size:14px}.card-arrow{position:absolute;right:24px;bottom:22px;color:#718398}.workflow-pin{height:100vh;background:#050b11;display:flex;align-items:center;overflow:hidden}.workflow-wrap{width:100%;padding:80px max(6vw,24px)}.workflow-wrap>h2{max-width:980px;margin:20px 0 80px}.workflow-line{height:1px;background:var(--line);max-width:var(--max);position:relative}.workflow-progress{height:2px;width:0;background:linear-gradient(90deg,var(--blue),var(--orange))}.workflow-steps{display:grid;grid-template-columns:repeat(5,1fr);max-width:var(--max)}.workflow-step{opacity:.18;transform:translateY(28px) scale(.98);padding:24px 20px 0 0}.workflow-step span{font-size:10px;color:var(--orange)}.workflow-step strong{display:block;margin:16px 0;font-size:20px}.workflow-step p{font-size:13px;line-height:1.6;color:var(--muted)}.experience{background:linear-gradient(180deg,#08121d,#0b1622)}.experience-layout{max-width:var(--max);margin:auto;display:grid;grid-template-columns:1fr 1.15fr;gap:80px;align-items:center}.experience-visual{height:520px;position:relative;display:grid;place-items:center}.experience-center{width:130px;height:130px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);font-size:26px;letter-spacing:.18em;background:#091521;box-shadow:0 0 80px rgba(106,162,255,.09)}.orbit{position:absolute;width:420px;height:420px;border:1px solid rgba(106,162,255,.2);border-radius:50%;animation:spin 26s linear infinite}.orbit:before,.orbit:after{content:"";position:absolute;border-radius:50%;border:1px dashed rgba(255,255,255,.09);inset:55px}.orbit:after{inset:115px}.orbit span{position:absolute;font-size:9px;letter-spacing:.15em;color:#7f91a6;background:#0a1520;padding:8px}.orbit span:nth-child(1){left:35%;top:-14px}.orbit span:nth-child(2){right:-22px;top:48%}.orbit span:nth-child(3){left:10%;bottom:5%}@keyframes spin{to{transform:rotate(360deg)}}.experience-item{display:flex;gap:28px;border-top:1px solid var(--line);padding:22px 0}.experience-item:last-child{border-bottom:1px solid var(--line)}.experience-item span{color:var(--orange);font-size:10px;margin-top:4px}.experience-item p{margin:0;font-size:18px}.engagements{background:#09131e}.engagement-grid{max-width:var(--max);margin:auto;display:grid;grid-template-columns:1.3fr .7fr;gap:18px}.engagement-card{min-height:360px;border:1px solid var(--line);padding:34px;background:linear-gradient(145deg,rgba(106,162,255,.05),rgba(255,126,61,.025));position:relative}.engagement-card h3{font-size:38px;letter-spacing:-.04em;margin:80px 0 18px}.engagement-card p{color:var(--muted);max-width:560px;line-height:1.7}.type{font-size:10px;letter-spacing:.18em;color:#75879b}.status{position:absolute;right:28px;top:28px;font-size:10px;letter-spacing:.14em;color:#9cc0ff}.status i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#62e59f;margin-right:8px;box-shadow:0 0 14px #62e59f}.status.muted{color:#7f91a6}.status.muted i{background:#647386;box-shadow:none}.disclaimer{max-width:var(--max);margin:20px auto 0;color:#63758a;font-size:11px}.capabilities{background:#f0f3f6;color:#0a1420}.capabilities .eyebrow{color:#5276a8}.capability-cloud{max-width:var(--max);margin:auto;display:flex;flex-wrap:wrap;gap:12px}.capability-cloud span{border:1px solid rgba(10,20,32,.16);padding:16px 20px;font-size:13px;background:#fff}.contact{min-height:78vh;display:grid;place-items:center;background:radial-gradient(circle at 50% 30%,rgba(106,162,255,.12),transparent 45%),#06101a}.contact-inner{text-align:center;max-width:900px}.contact h2{margin:22px 0}.contact p{color:var(--muted);font-size:18px;line-height:1.7}.contact .button{margin-top:22px}footer{padding:34px max(4vw,22px);border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;color:#7e8fa3;font-size:11px;gap:24px}footer p{margin:0}@media(max-width:980px){.nav-links a:not(.nav-cta){display:none}.mesh-panel{opacity:.28;right:-45vw}.hero-content{width:100%}.intro{grid-template-columns:1fr}.section-label{margin-bottom:-30px}.intro-note{max-width:520px}.section-heading{grid-template-columns:1fr;gap:28px}.service-grid{grid-template-columns:repeat(2,1fr)}.workflow-steps{grid-template-columns:1fr}.workflow-step{position:absolute;left:max(6vw,24px);right:max(6vw,24px);margin-top:24px}.workflow-wrap>h2{margin-bottom:55px}.experience-layout{grid-template-columns:1fr}.experience-visual{height:390px}.orbit{width:320px;height:320px}.engagement-grid{grid-template-columns:1fr}footer{flex-direction:column;align-items:flex-start}}@media(max-width:620px){.section{padding:90px 22px}.nav{height:68px}.nav-cta{padding:10px 12px}.brand{font-size:11px}.hero{padding-top:110px}.hero-title{font-size:54px}.hero-copy{font-size:17px}.mesh-panel{display:none}.service-grid{grid-template-columns:1fr}.service-card{min-height:260px}.service-card h3{margin-top:48px}.experience-visual{height:310px}.orbit{width:260px;height:260px}.engagement-card{min-height:320px}.engagement-card h3{font-size:32px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important}}
 
-export const metadata: Metadata = {
-  title: "RIIS Engineering | Offshore, Onshore, FEA & PMP-led PMT",
-  description:
-    "Independent engineering support across offshore, onshore, FEA and R&D, and PMP-led project management team services.",
-};
+button{font:inherit;color:inherit}.button{cursor:pointer}.contact-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.codes-ticker{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#08121c;padding:22px 0}.ticker-track{display:flex;align-items:center;gap:30px;width:max-content;animation:ticker 28s linear infinite;font-size:11px;letter-spacing:.18em;color:#8ea0b4}.ticker-track b{color:var(--orange)}@keyframes ticker{to{transform:translateX(-50%)}}
+.whatsapp-float{position:fixed;right:24px;bottom:24px;z-index:60;width:58px;height:58px;border-radius:50%;border:1px solid rgba(255,255,255,.24);background:#f4f7fb;color:#071019;font-size:11px;font-weight:800;cursor:pointer;box-shadow:0 18px 55px rgba(0,0,0,.36)}
+.whatsapp-panel{position:fixed;right:24px;bottom:94px;z-index:59;width:min(390px,calc(100vw - 32px));padding:28px;background:rgba(10,21,32,.98);border:1px solid var(--line);box-shadow:0 24px 80px rgba(0,0,0,.48);backdrop-filter:blur(18px)}.panel-close{position:absolute;right:16px;top:12px;border:0;background:none;font-size:28px;color:#8192a5;cursor:pointer}.whatsapp-panel h3{font-size:30px;letter-spacing:-.04em;margin:14px 0}.whatsapp-panel>p:not(.eyebrow){color:var(--muted);font-size:13px;line-height:1.6}.whatsapp-panel>a{display:grid;grid-template-columns:34px 1fr 20px;align-items:center;border-top:1px solid var(--line);padding:18px 0}.whatsapp-panel>a:last-child{border-bottom:1px solid var(--line)}.whatsapp-panel>a span{font-size:10px;color:var(--orange)}.whatsapp-panel>a strong{font-size:14px}.whatsapp-panel>a b{font-weight:400;color:#718398}
+@media(max-width:980px){.workflow-pin{height:auto!important;min-height:0!important;display:block!important;padding:90px 0!important}.workflow-wrap{padding:60px max(6vw,24px)!important}.workflow-wrap>h2{margin-bottom:45px!important}.workflow-line{display:none}.workflow-steps{display:grid!important;grid-template-columns:1fr!important;gap:0!important}.workflow-step{position:relative!important;left:auto!important;right:auto!important;margin:0!important;padding:24px 0!important;border-top:1px solid var(--line);opacity:1!important;transform:none!important}.workflow-step:last-child{border-bottom:1px solid var(--line)}}
+@media(max-width:620px){.whatsapp-float{right:18px;bottom:18px;width:54px;height:54px}.whatsapp-panel{right:16px;bottom:82px;padding:24px}}
 
-const paths = [
-  {
-    href: "/offshore",
-    accent: "blue",
-    number: "01",
-    icon: OffshoreIcon,
-    title: "Offshore",
-    kicker: "Existing specialist subpage",
-    copy: "Structural engineering for offshore assets, brownfield modification, integrity, subsea and marine operations.",
-    bullets: ["Platforms & jackets", "Brownfield & life extension", "Subsea & marine support"],
-    image: true,
-    cta: "Enter offshore",
-  },
-  {
-    href: "/onshore",
-    accent: "amber",
-    number: "02",
-    icon: OnshoreIcon,
-    title: "Onshore",
-    kicker: "Civil, structural & infrastructure",
-    copy: "Engineering for industrial facilities, buildings, foundations, site development and asset rehabilitation.",
-    bullets: ["Greenfield & brownfield", "Infrastructure & foundations", "Construction support"],
-    cta: "Explore onshore",
-  },
-  {
-    href: "/fea",
-    accent: "green",
-    number: "03",
-    icon: FeaIcon,
-    title: "FEA & R&D",
-    kicker: "Evidence for better iterations",
-    copy: "Simulation-led support for product development, concept validation, failure investigation and optimisation.",
-    bullets: ["R&D concept screening", "Prototype & design validation", "Nonlinear and local response"],
-    cta: "Explore FEA & R&D",
-  },
-  {
-    href: "/pmt",
-    accent: "orange",
-    number: "04",
-    icon: PmtIcon,
-    title: "PMT",
-    kicker: "PMP-led project delivery",
-    copy: "Project Management Team support using disciplined PMP-style planning, control, coordination and reporting.",
-    bullets: ["Scope, schedule & risk", "Technical coordination", "Progress & decision control"],
-    cta: "Explore PMT",
-  },
-];
+/* V1.1.2 approved RIIS logo integration */
+.brand{min-width:0}.riis-nav-logo{display:block;width:min(330px,42vw);height:78px;object-fit:cover;object-position:center;mix-blend-mode:screen;filter:contrast(1.08) drop-shadow(0 10px 28px rgba(44,128,255,.16))}
+.hero-riis-logo{display:block;width:min(620px,72vw);max-height:245px;object-fit:cover;object-position:center;margin:0 0 20px -6%;mix-blend-mode:screen;filter:contrast(1.08) drop-shadow(0 20px 55px rgba(0,0,0,.35))}
+@media(max-width:980px){.riis-nav-logo{width:min(280px,50vw);height:68px}.hero-riis-logo{width:min(560px,84vw);margin-left:-8%}}
+@media(max-width:620px){.riis-nav-logo{width:210px;height:58px}.hero-riis-logo{width:105vw;max-height:165px;margin:0 0 16px -18vw}}
 
-export default function HomePage() {
-  return (
-    <PageFrame accent="blue">
-      <section className={styles.homeHero}>
-        <span className={styles.eyebrow}>Independent engineering solutions</span>
-        <h1>
-          Choose the expertise your <span>decision</span> needs.
-        </h1>
-        <p>
-          Select one of our four specialist service routes. Offshore remains on its existing page, while Onshore, FEA & R&D and PMT provide focused support for your next decision.
-        </p>
-      </section>
 
-      <section className={styles.homePaths} aria-label="RIIS capabilities">
-        {paths.map((path) => {
-          const Icon = path.icon;
-          return (
-            <article className={styles.pathCard} data-accent={path.accent} key={path.href}>
-              {path.image ? (
-                <div className={styles.pathImage}>
-                  <img src="/riis/platform-mesh.png" alt="Offshore structural mesh visualisation" />
-                </div>
-              ) : (
-                <div className={styles.miniVisual} />
-              )}
-              <span className={styles.pathNumber}>{path.number}</span>
-              <Icon className={styles.pathIcon} />
-              <h2>{path.title}</h2>
-              <h3>{path.kicker}</h3>
-              <p>{path.copy}</p>
-              <div className={styles.pathList}>
-                {path.bullets.map((bullet) => (
-                  <span key={bullet}><CheckIcon /> {bullet}</span>
-                ))}
-              </div>
-              <Link href={path.href} className={styles.cardLink}>
-                {path.cta} <ArrowIcon />
-              </Link>
-            </article>
-          );
-        })}
-      </section>
+/* ==========================================================
+   RIIS V1.2 — INDUSTRY GATEWAY
+   ========================================================== */
+.gateway-page{min-height:100vh;background:#030a11;color:#f4f7fb;position:relative;overflow:hidden}
+.gateway-page:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(77,133,183,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(77,133,183,.055) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(circle at 15% 35%,#000,transparent 62%)}
+.gateway-header{min-height:105px;display:flex;justify-content:space-between;align-items:flex-start;padding:30px 3.4vw;position:relative;z-index:2}
+.gateway-brand{display:flex;flex-direction:column}.gateway-brand strong{font-size:58px;line-height:.75;letter-spacing:.04em;background:linear-gradient(90deg,#1657a4,#14bed5 28%,#b7df36 50%,#f3c42b 68%,#ff4724);-webkit-background-clip:text;background-clip:text;color:transparent}.gateway-brand span{font-size:15px;letter-spacing:.34em;margin-top:14px}
+.gateway-positioning{border-left:2px solid #ff681f;padding-left:20px;display:flex;flex-direction:column;gap:10px;font-size:12px;letter-spacing:.1em}.gateway-positioning span{color:#b6c3cc}
+.gateway-main{padding:0 3.4vw 26px;position:relative;z-index:2}.gateway-head{text-align:center;max-width:1100px;margin:0 auto 24px}.gateway-head h1{font-size:clamp(31px,3vw,48px);letter-spacing:.01em;margin:0}.gateway-head h1 span{color:#ff681f}.gateway-head i{display:block;width:55px;height:3px;background:#ff681f;margin:18px auto}.gateway-head p{color:#c4cdd4;font-size:16px}
+.industry-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1440px;margin:auto}.industry-card{min-height:520px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.33);border-radius:7px}.industry-card>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s ease}.industry-card:hover>img{transform:scale(1.035)}.industry-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,10,17,.95) 0%,rgba(3,10,17,.74) 47%,rgba(3,10,17,.18) 100%),linear-gradient(0deg,rgba(3,10,17,.72),transparent 48%)}.industry-content{position:relative;z-index:2;padding:35px 32px;max-width:440px}.industry-icon{font-size:40px;color:#ff681f}.industry-content h2{font-size:48px;line-height:.95;margin:12px 0 12px}.industry-content>p{font-size:17px;line-height:1.45;color:#e1e7eb}.industry-content ul{list-style:none;padding:0;margin:16px 0 24px;line-height:1.72;color:#e2e8ec}.industry-content li:before{content:"✓";color:#ff681f;margin-right:12px}.gateway-button{display:inline-flex;min-width:235px;justify-content:space-between;align-items:center;background:#f25713;padding:16px 19px;font-size:13px;font-weight:700}.gateway-button b{font-size:23px}.or-badge{position:absolute;z-index:4;left:50%;top:50%;transform:translate(-50%,-50%);width:62px;height:62px;border-radius:50%;display:grid;place-items:center;border:1px solid #748694;background:#07111b;font-weight:700}
+.gateway-proof{max-width:1440px;margin:14px auto 0;border:1px solid rgba(255,255,255,.25);display:grid;grid-template-columns:1.1fr repeat(4,1fr)}.gateway-proof>div{min-height:128px;border-right:1px solid rgba(255,255,255,.22);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px}.gateway-proof>div:last-child{border-right:0}.gateway-proof strong{font-size:28px}.gateway-proof span{font-size:10px;line-height:1.5;color:#c6d0d6;margin-top:10px}.gateway-proof .years strong{font-size:58px;color:#ff681f}.gateway-footer{border-top:1px solid rgba(255,255,255,.22);display:grid;grid-template-columns:1fr auto auto;gap:45px;align-items:center;padding:22px 3.4vw;color:#aab8c3;font-size:11px}.gateway-footer>div{display:flex;flex-direction:column;gap:7px}.gateway-footer b{color:#fff;letter-spacing:.18em}.gateway-footer nav{display:flex;gap:24px;color:#fff}
 
-      <section className={styles.valueStrip}>
-        <div><strong>Problem-first engagement</strong><p>We define the decision before selecting the level of analysis or project support.</p></div>
-        <div><strong>Senior technical judgement</strong><p>Engineering conclusions are framed around risk, practicality and the next action.</p></div>
-        <div><strong>Flexible scope</strong><p>Engage RIIS for a focused review, defined work package or continuing technical support.</p></div>
-      </section>
+/* ==========================================================
+   RIIS V1.2 — ONSHORE SCROLL PAGE
+   ========================================================== */
+.onshore-page{background:#030a11;color:#f4f7fb}.onshore-nav{height:80px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 28px;background:#030a11;border-bottom:1px solid #22384a;position:relative;z-index:20}.onshore-brand{display:flex;flex-direction:column}.onshore-brand strong{font-size:36px;line-height:.8;background:linear-gradient(90deg,#1558a5,#17bfd6 30%,#f4cc2e 65%,#ff3d20);-webkit-background-clip:text;background-clip:text;color:transparent}.onshore-brand span{font-size:8px;letter-spacing:.26em;margin-top:8px}.onshore-nav>div{display:flex;gap:26px;font-size:11px}.onshore-nav>button{justify-self:end;border:1px solid #ff681f;background:transparent;color:#ff681f;padding:13px 17px;font-size:10px;cursor:pointer}
+.onshore-hero{min-height:720px;position:relative;display:flex;align-items:center;overflow:hidden}.onshore-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.onshore-hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,#030a11 0%,rgba(3,10,17,.96) 37%,rgba(3,10,17,.55) 65%,rgba(3,10,17,.15))}.onshore-hero-copy{position:relative;z-index:2;max-width:700px;padding:60px 34px}.onshore-hero-copy>p,.onshore-section-head>p,.onshore-why-copy>p,.onshore-tools>p,.onshore-contact>div>p{font-size:10px;letter-spacing:.17em;color:#ff681f;font-weight:700}.onshore-hero-copy h1{font-size:clamp(55px,6.2vw,92px);line-height:.87;letter-spacing:-.055em;margin:18px 0 22px}.onshore-hero-copy h1 span{color:#ff681f}.onshore-hero-copy small{display:block;max-width:520px;color:#c2cdd5;font-size:16px;line-height:1.6}.onshore-hero-copy>div{display:flex;gap:14px;margin-top:28px}.onshore-hero-copy a,.onshore-hero-copy button{min-height:52px;padding:0 20px;display:inline-flex;align-items:center;border:1px solid #7e909d;background:transparent;color:#fff;font-size:10px;font-weight:700}.onshore-hero-copy a{background:#f25713;border-color:#f25713}
+.onshore-services{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #445c6d;border-bottom:1px solid #445c6d}.onshore-service{min-height:430px;position:relative;overflow:hidden;border-right:1px solid #445c6d}.onshore-service:last-child{border-right:0}.onshore-service>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.onshore-service-shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,10,17,.95),rgba(3,10,17,.24) 70%)}.onshore-service>span,.onshore-service small,.onshore-service h2,.onshore-service p,.onshore-service b{position:absolute;z-index:2;left:22px}.onshore-service>span{top:20px;color:#ff681f;font-size:23px}.onshore-service small{top:58px;font-size:9px;letter-spacing:.08em}.onshore-service h2{bottom:120px;right:22px;font-size:29px;line-height:1.02;margin:0}.onshore-service p{bottom:66px;right:22px;font-size:12px;line-height:1.45;color:#c7d2d9}.onshore-service b{bottom:22px;font-size:10px}
+.onshore-section{padding:78px 30px}.onshore-why{background:#071522}.onshore-why-copy{display:grid;grid-template-columns:.35fr 1.2fr 1fr;gap:30px;align-items:end}.onshore-why-copy h2{font-size:44px;line-height:.98;margin:0}.onshore-why-copy span{color:#aebdc8;line-height:1.6}.onshore-credentials{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid #28465b;border-left:1px solid #28465b;margin-top:36px}.onshore-credentials>div{min-height:150px;border-right:1px solid #28465b;border-bottom:1px solid #28465b;display:flex;flex-direction:column;justify-content:center;padding:18px}.onshore-credentials strong{font-size:34px;color:#8cc8ea}.onshore-credentials span{font-size:9px;line-height:1.5;margin-top:12px;color:#a9bdca}.onshore-sectors{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid #28465b;margin-top:12px}.onshore-sectors span{padding:14px;text-align:center;font-size:9px;border-right:1px solid #28465b}.onshore-sectors span:last-child{border-right:0}
+.onshore-experience{background:#edf1f3;color:#071522}.onshore-section-head h2{font-size:52px;margin:12px 0 0}.onshore-projects{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:35px}.onshore-project{min-height:270px;position:relative;overflow:hidden;background:#071522;color:#fff}.onshore-project img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.onshore-project>div{position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,10,17,.94),rgba(3,10,17,.12) 70%)}.onshore-project span,.onshore-project h3,.onshore-project p,.onshore-project b{position:absolute;z-index:2;left:15px}.onshore-project span{top:14px;color:#ff681f}.onshore-project h3{bottom:65px;right:12px;font-size:19px;line-height:1.05;margin:0}.onshore-project p{bottom:28px;right:25px;font-size:9px;color:#c8d4dc}.onshore-project b{left:auto;right:12px;bottom:10px;color:#ff681f}.onshore-note{font-size:8px;letter-spacing:.08em;color:#687781;margin-top:18px}
+.onshore-tools{background:#071522}.onshore-tools>div{display:flex;flex-wrap:wrap;gap:28px;margin-top:22px;color:#c6d3dc;font-size:13px}
+.onshore-contact{min-height:350px;display:grid;grid-template-columns:1fr 1fr;background:#071522}.onshore-contact>div{padding:55px 35px;display:flex;flex-direction:column;justify-content:center}.onshore-contact h2{font-size:45px;line-height:.95;margin:15px 0}.onshore-contact span{color:#aebec9;line-height:1.6}.onshore-contact button{margin-top:24px;width:max-content;min-height:52px;padding:0 20px;background:#f25713;color:#fff;border:0;font-size:10px;font-weight:700}.onshore-contact>img{width:100%;height:100%;object-fit:cover}.onshore-footer{min-height:105px;display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:30px;padding:25px 30px;border-top:1px solid #28465b;color:#8093a1;font-size:10px}.onshore-footer>a{color:#fff;font-weight:700;letter-spacing:.16em}
+.onshore-modal{position:fixed;inset:0;z-index:100}.onshore-backdrop{position:absolute;inset:0;width:100%;height:100%;background:rgba(0,0,0,.78);border:0}.onshore-contact-card{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(620px,calc(100vw - 30px));background:#fff;color:#071522;padding:45px}.onshore-close{position:absolute;right:15px;top:10px;border:0;background:transparent;font-size:34px}.onshore-contact-card>p{font-size:9px;letter-spacing:.16em;color:#f25713}.onshore-contact-card h2{font-size:45px;line-height:.95}.onshore-contact-card>a{min-height:72px;border-top:1px solid #d4dde2;display:flex;align-items:center;justify-content:space-between;font-weight:700}.onshore-contact-card>a:nth-last-of-type(1){border-bottom:1px solid #d4dde2}.onshore-contact-card>a span{color:#f25713}.onshore-contact-card small{display:block;margin-top:20px;color:#79868e;font-size:8px;letter-spacing:.08em}
 
-      <CredentialBand />
-      <ContactPanel title="Not sure which service fits? Show us the challenge." />
-      <WhatsAppWidget />
-    </PageFrame>
-  );
+@media(max-width:980px){
+  .gateway-header{align-items:center}.gateway-positioning{display:none}.industry-grid{grid-template-columns:1fr}.or-badge{position:relative;left:auto;top:auto;transform:none;margin:-8px auto;grid-row:2}.gateway-proof{grid-template-columns:repeat(2,1fr)}.gateway-proof>div{border-bottom:1px solid rgba(255,255,255,.22)}.gateway-footer{grid-template-columns:1fr}
+  .onshore-nav{grid-template-columns:1fr auto}.onshore-nav>div{display:none}.onshore-services{grid-template-columns:1fr}.onshore-service{border-right:0;border-bottom:1px solid #445c6d}.onshore-why-copy{grid-template-columns:1fr}.onshore-credentials{grid-template-columns:repeat(2,1fr)}.onshore-sectors{grid-template-columns:repeat(2,1fr)}.onshore-projects{grid-template-columns:repeat(2,1fr)}.onshore-contact{grid-template-columns:1fr}.onshore-contact>img{min-height:280px}.onshore-footer{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .gateway-header{padding:24px 18px}.gateway-brand strong{font-size:43px}.gateway-head h1{font-size:32px}.gateway-main{padding:0 15px 22px}.industry-card{min-height:570px}.industry-content{padding:28px 22px}.industry-content h2{font-size:42px}.gateway-proof{grid-template-columns:1fr}.gateway-proof>div{border-right:0}.gateway-footer{padding:22px 18px}
+  .onshore-nav{padding:0 16px}.onshore-hero-copy{padding:55px 20px}.onshore-hero-copy h1{font-size:54px}.onshore-hero-copy>div{flex-direction:column}.onshore-section{padding:65px 20px}.onshore-credentials{grid-template-columns:1fr}.onshore-projects{grid-template-columns:1fr}.onshore-contact h2{font-size:39px}
+}
+
+
+/* V1.2.1 — exact V1.1.1 Native Refined offshore host */
+.native-offshore-host{
+  width:100%;
+  height:100vh;
+  min-height:100vh;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  background:#01070d;
+}
+.native-offshore-frame{
+  display:block;
+  width:100%;
+  height:100%;
+  border:0;
+  background:#01070d;
 }
