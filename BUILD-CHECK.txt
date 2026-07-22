@@ -1,9 +1,0 @@
-Build validation completed with Next.js 16.2.10 and TypeScript strict mode.
-Validated static routes:
-- /
-- /onshore
-- /fea
-- /pmt
-- /offshore (test stub used only in validation project; not included in patch)
-
-Result: production build compiled successfully and all routes were statically generated.
